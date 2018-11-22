@@ -24,5 +24,9 @@
     "picturefill": "^3.0.2",
     "requirejs": "^2.3.6",
     "susy": "^3.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://timgit2.cegep-ste-foy.qc.ca/1540243/quiz.git"
   }
 }

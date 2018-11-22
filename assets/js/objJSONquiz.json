@@ -5,18 +5,19 @@
   },
   "explications": {
     "Q1": "Blablabla explications sur Q1",
-    "Q2": "Blablabla explications sur Q2",
-    "Q3": "Blablabla explications sur Q3"
+    "Q2": "Un des éléments le plus importants dans les histoires du jeu est le Triforce. Cette relique sacrée a été créée par les trois déesses Din, Nayru et Farore. Chacune d'entre elles s'associe à une caractéristique : Din représente le pouvoir, Nayru représente la sagesse, et Farore représente le courage. Le Triforce a été ainsi créé avec ces trois caractéristiques associées.",
+    "Q3": "Oocoo est un personnage qui apparaît dans le jeu The Legend of Zelda : Twilight Princess. Elle est une alliée très pratique pour Link puisqu'elle peut, à l'aide de son fils Ooccoo Jr,  le téléporter à l'entrée du donjon qu'il parcourt. On peut la retrouver coincée dans un pot quelque part dans un donjon. Elle fait partie de la race Oocca et elle a environ 40 ans."
+
   },
   "bonnesReponses": [
-    "Q1A",
-    "Q2B",
-    "Q3C"
+    "Q1B",
+    "Q2D",
+    "Q3A"
   ],
   "pointsReponse": [
     3,
-    4,
-    3
+    5,
+    6
   ],
   "messages": {
     "pasDeReponse": "Veuillez d'abord répondre à la question!", 
