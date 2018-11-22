@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Quiz titreDuQuiz</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+<!-- Canevas de départ proposé pour la version "pauvre" -->
+
+
+<header role="banner">
+  <h1 class="title">Quiz titreDuQuiz<br>
+    <span>Sous-titre</span></h1>
+</header>
+
+
+
+<main>
+  <form action="resultats.php">
+    <section id="Q1">
+      <fieldset>
+        <legend>Libellé de la question UN ?</legend>
+        <ul class="choixReponses">
+          <li>
+            <input id="Q1A" type="radio" name="Q1" value="0">
+            <label for="Q1A">A. CHOIX A</label>
+          </li>
+          <li>
+            <input id="Q1B" type="radio" name="Q1" value="1">
+            <label for="Q1B">B. CHOIX B</label>
+          </li>
+          <li>
+            <input id="Q1C" type="radio" name="Q1" value="0">
+            <label for="Q1C">C. CHOIX C</label>
+          </li>
+        </ul>
+      </fieldset> 
+    </section>
+
+    <section id="Q2">
+      <fieldset>
+        <legend>Libellé de la question DEUX ?</legend>
+        <ul class="choixReponses">
+          <li>
+            <input id="Q2A" type="radio" name="Q2" value="1">
+            <label for="Q2A">A. CHOIX A</label>
+          </li>
+          <li>
+            <input id="Q2B" type="radio" name="Q2" value="0">
+            <label for="Q2B">B. CHOIX B</label>
+          </li>
+          <li>
+            <input id="Q2C" type="radio" name="Q2" value="0">
+            <label for="Q2C">C. CHOIX C</label>
+          </li>
+        </ul>
+      </fieldset> 
+    </section>
+
+    <section id="Q3">
+      <fieldset>
+        <legend>Libellé de la question TROIS ?</legend>
+        <ul class="choixReponses">
+          <li>
+            <input id="Q3A" type="radio" name="Q3" value="0">
+            <label for="Q3A">A. CHOIX A</label>
+          </li>
+          <li>
+            <input id="Q3B" type="radio" name="Q3" value="1">
+            <label for="Q3B">B. CHOIX B</label>
+          </li>
+          <li>
+            <input id="Q3C" type="radio" name="Q3" value="0">
+            <label for="Q3C">C. CHOIX C</label>
+          </li>
+        </ul>
+      </fieldset> 
+    </section>
+
+    <button id='validerQuiz' name='validerQuiz'>Valider mes choix</button>
+
+  </form>
+</main>
+
+
+
+<footer role="contentinfo">
+  <small>pied de page [crédits(votre nom); droits d'auteur sur le matériel utilisé, année]</small>
+</footer>
+
+<!--balise script cdn à jour été 2018-->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<!--balise script pour chargement local de la version installée avec Bower-->
+<script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js">\x3C/script>')</script>
+
+<script src="node_modules/requirejs/require.js" data-main="assets/js/main.js"></script>
+
+</body>
+
+</html>
