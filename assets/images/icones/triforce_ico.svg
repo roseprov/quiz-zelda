@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="47" viewBox="0 0 55 47">
+  <g id="Page-1" fill="none" fill-rule="evenodd">
+    <g id="quiz_table" fill="#F3E299" fill-rule="nonzero" stroke="#E9C755" transform="translate(-38 -15)">
+      <g id="triforce_ico" transform="translate(39 15)">
+        <g id="Group">
+          <polygon id="Shape" points=".361 45.818 13.431 23 26.5 45.818"/>
+          <polygon id="Shape" points="13.431 23 26.5 .182 39.569 23"/>
+          <polygon id="Shape" points="26.5 45.818 39.569 23 52.639 45.818"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
