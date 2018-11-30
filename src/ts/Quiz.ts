@@ -1,7 +1,6 @@
 /**
- * @author
- * @version
- * @todo À compléter!!!
+ * @author Rose Provencher <roseprovencher02@gmail.com>
+ * @version 1.0
  */
 
 export class Quiz {
@@ -17,18 +16,33 @@ export class Quiz {
 
     public constructor() {
         //Créer une promesse
-        console.log('hello');
+
+        this.getJSON();
+
         this.initialiser();
 
         this.Q1.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
         this.Q2.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
     }
 
+    private async getJSON() {
+        try {
+            let promesse = await fetch('assets/js/objJSONquiz.json');
+            let reponse = await promesse.json();
+            this.objJSONQuiz = reponse;
+            console.log(this.objJSONQuiz);
+
+        } catch(erreur){
+            console.error(erreur);
+        }
+    }
+
     /**
      * Définit l'état initial de l'App en version "riche"
      */
-    private initialiser() {
+    private initialiser():void {
         console.log('in');
+        console.log(this.objJSONQuiz);
         // Cacher le bouton de soumission du formulaire
         this.btnValiderQuiz.style.display = 'none';
         // Cacher toutes les questions
@@ -46,6 +60,10 @@ export class Quiz {
         document.getElementById('Q'+no).style.display = 'block';
     }
 
+    /**
+     * Cache une question
+     * @param no
+     */
     private cacherQuestion(no:number):void {
         document.getElementById('Q'+no).style.display = 'none';
     }
