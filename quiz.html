@@ -1,42 +1,3 @@
-<?php
-//Associer le fichier JSON
-$strDonneesJSON=file_get_contents("assets/js/objJSONquiz.json");
-$arrJSON=json_decode($strDonneesJSON,true);
-
-$pointage = 0;
-$arrErreurs = array();
-$arrExpReponse = array();
-
-if(isset($_GET['validerQuiz'])){
-    $blnValidationsOk = true;
-
-    for($i=1;$i<=3;$i++){
-        if(isset($_GET['Q'.$i])){
-            //Inscrire l'explication de la réponse
-            $arrExpReponse['Q'.$i] = array(
-                'explication' => $arrJSON['explications']['Q'.$i],
-                'retroaction' => null
-            );
-            //Affichage de la rétroaction
-            if($_GET['Q'.$i] == $arrJSON['bonnesReponses'][0]){
-                $arrExpReponse['Q'.$i]['retroaction'] = $arrJSON['retroactions']['positive'];
-                $pointage += $arrJSON['pointsReponse'][$i-1];
-            } else {
-                $arrExpReponse['Q'.$i]['retroaction'] = $arrJSON['retroactions']['negative'];
-            }
-        } else {
-            $blnValidationsOk = false;
-            $arrErreurs['Q'.$i] = $arrJSON['messages']['pasDeReponse'];
-        }
-    }
-
-    if($blnValidationsOk){
-        header('Location: resultats.php');
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -57,7 +18,7 @@ if(isset($_GET['validerQuiz'])){
 
 <main>
     <p><span class="icone">icone pouch</span> <span><?= $pointage; ?></span></p>
-    <form action="quiz.php" novalidate>
+    <form action="resultats.php" novalidate>
         <section id="Q1" class="q1">
           <fieldset class="q1__questions">
             <legend>Quel est le nom de cette mélodie ?</legend>
@@ -178,6 +139,22 @@ if(isset($_GET['validerQuiz'])){
 <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js">\x3C/script>')</script>
 
 <script src="node_modules/requirejs/require.js" data-main="assets/js/main.js"></script>
+
+<script>
+    //Enregistrement du SW
+    // Vérifier si les SW sont supportés par les naviagteurs
+
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./serviceworker.js')
+            .then(function(inscription) {
+                console.log('L\'enregistrement du SW a réussi.');
+            }).catch(function(erreur) {
+            console.log('L\'enregistrement du SW a échoué: ' + erreur);
+        });
+    }
+</script>
+
+<script src="logging.js"></script>
 
 </body>
 

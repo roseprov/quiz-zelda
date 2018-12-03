@@ -20,7 +20,7 @@
   <h2>Introduction</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deserunt esse iure laboriosam nesciunt non
     rerum sit suscipit ullam velit!</p>
-  <p><a href="quiz.php">Commencer le quiz</a></p>
+  <p><a href="quiz.html">Commencer le quiz</a></p>
 </main>
 
 
@@ -39,6 +39,23 @@
 <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js">\x3C/script>')</script>
 
 <script src="node_modules/requirejs/require.js" data-main="assets/js/main.js"></script>
+
+
+<script>
+    //Enregistrement du SW
+    // Vérifier si les SW sont supportés par les naviagteurs
+
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./serviceworker.js')
+            .then(function(inscription) {
+                console.log('L\'enregistrement du SW a réussi.');
+            }).catch(function(erreur) {
+            console.log('L\'enregistrement du SW a échoué: ' + erreur);
+        });
+    }
+</script>
+
+<script src="logging.js"></script>
 
 </body>
 
