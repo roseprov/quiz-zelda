@@ -60,8 +60,6 @@ export class Quiz {
      * Définit l'état initial de l'App en version "riche"
      */
     private initialiser():void {
-        // const button:HTMLButtonElement = document.createElement('button');
-
         // Cacher le bouton de soumission du formulaire
         this.btnValiderQuiz.style.display = 'none';
         // Cacher toutes les questions
@@ -69,14 +67,6 @@ export class Quiz {
         this.Q3.style.display = 'none';
         // Afficher première question
         this.afficherQuestion(this.questionActive);
-        //Afficher bouton prochaine question
-        // button.className = 'btn_next';
-        // button.innerHTML = 'Prochaine question';
-        // button.type = 'button';
-        // document
-        //     .getElementById('Q1')
-        //     .appendChild(button)
-        //     .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this))
     }
 
     /**
