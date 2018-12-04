@@ -60,16 +60,6 @@ self.addEventListener('install', function(event) {
 // dans ces pages
 self.addEventListener('fetch', function(event) {
 
-    // var pageURL = new URL('./', location);
-    // if (event.request.url === pageURL.href) {
-    //     event.respondWith(new Response("Hello world!"));
-    //     return;
-    // }
-
-    // if (/\.jpg$/.test(event.request.url)) {
-    //     event.respondWith(fetch('trollface.svg'));
-    //     return;
-    // }
     // Appeler event.respondWith signifie
     // que nous prenons la responsabilité de fournir une réponse.
     // Nous passons une promesse
