@@ -10,3 +10,21 @@ if (isset($_GET['validerQuiz'])) {
 }
 
 echo "Cette phrase s'affiche si PHP est supporté par ce serveur.";
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quiz - The Legend of Zelda</title>
+    <!--<link rel="stylesheet" href="assets/css/styles.css">-->
+</head>
+<body>
+
+</body>
+</html>
+
+

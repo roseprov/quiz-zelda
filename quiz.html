@@ -12,16 +12,23 @@
 
 
 <header role="banner">
-  <h1 class="title">The Legend of Zelda<br>
-    <span>Le quiz « légendaire » de la série <i>The Legend of Zelda</i></span></h1>
+    <a href="index.html">
+        <span class="icone"></span>
+        <p class="title">Le quiz « légendaire » de la série <span>The Legend of Zelda</span></p>
+    </a>
 </header>
 
 <main>
+    <p class="indicateurQuestion"></p>
     <p><span class="icone">icone pouch</span> <span><?= $pointage; ?></span></p>
     <form action="resultats.php" novalidate>
         <section id="Q1" class="q1">
           <fieldset class="q1__questions">
             <legend>Quel est le nom de cette mélodie ?</legend>
+            <picture>
+                <source srcset="assets/images/img_q1_w417.jpg 1x, assets/images/img_q1_w680.jpg 2x">
+                <img src="assets/images/img_q1_w417.jpg" alt="Mélodie dans Ocarina of Time">
+            </picture>
             <ul class="choixReponses">
               <li>
                 <input id="Q1A" type="radio" name="Q1" value="Q1A">
@@ -40,19 +47,25 @@
           </fieldset>
         <div class="q1__reponse">
             <p class="retroaction"><?= array_key_exists('Q1', $arrExpReponse) ? $arrExpReponse['Q1']['retroaction'] : ''; ?></p>
-            <picture>PLACEHOLDER</picture>
-            <p class="explication"><?= array_key_exists('Q1', $arrExpReponse) ? $arrExpReponse['Q1']['explication'] : ''; ?></p>
+            <picture class="img_rep">
+                <!--<source srcset="assets/images/img_q1_rep_w200.png 1x, assets/images/img_q1_rep_w400.png 2x">-->
+                <!--<img src="assets/images/img_q1_rep_w200.png" alt="Image de Link avec son ocarina">-->
+            </picture>
+            <p class="explication"></p>
         </div>
         <p class="erreur" aria-live="assertive" aria-atomic="true">
-            <?= array_key_exists('Q1', $arrErreurs) ? $arrErreurs['Q1'] : ''; ?>
         </p>
-        <button type="button" class="btn_next">Inserer en javascriptProchaine question</button>
         </section>
 
         <section id="Q2" class="q2">
           <fieldset class="q2__questions">
             <legend>Quels sont les noms des trois divinités qui ont créé le Triforce ?</legend>
-            <ul class="choixReponses">
+              <picture>
+                  <source media="(min-width:601px)" srcset="assets/images/img_q2_w320.png 1x, assets/images/img_q1_w834.png 2x">
+                  <source media="(max-width:600px)" srcset="assets/images/img_q2_w160.png 1x, assets/images/img_q1_w320.png 2x">
+                  <img src="assets/images/img_q2_w320.png" alt="Blason du Triforce">
+              </picture>
+              <ul class="choixReponses">
               <li>
                 <input id="Q2A" type="radio" name="Q2" value="Q2A">
                 <label for="Q2A">A. Zelda, Sheik, Impa</label>
@@ -72,19 +85,25 @@
             </ul>
           </fieldset>
             <div class="q2__reponse">
-                <p class="retroaction"><?= array_key_exists('Q2', $arrExpReponse) ? $arrExpReponse['Q2']['retroaction'] : ''; ?></p>
-                <picture>PLACEHOLDER</picture>
-                <p class="explication"><?= array_key_exists('Q2', $arrExpReponse) ? $arrExpReponse['Q2']['explication'] : ''; ?></p>
+                <p class="retroaction"></p>
+                <picture class="img_rep">
+                    <!--<source media="(min-width:601px)" srcset="assets/images/img_q2_rep_w322.png">-->
+                    <!--<source media="(max-width:600px)" srcset="assets/images/img_q2_rep_w161.png 1x, assets/images/img_q2_rep_w322.png 2x">-->
+                    <!--<img src="assets/images/img_q2_rep_w322.png" alt="Déesses du Triforce">-->
+                </picture>
+                <p class="explication"></p>
             </div>
             <p class="erreur" aria-live="assertive" aria-atomic="true">
-                <?= array_key_exists('Q2', $arrErreurs) ? $arrErreurs['Q2'] : ''; ?>
             </p>
-            <button type="button" class="btn_next">Prochaine question</button>
         </section>
 
-        <section id="Q3" class="q2">
+        <section id="Q3" class="q3">
           <fieldset class="q3__questions">
             <legend>Quel est le nom de ce personnage ?</legend>
+              <picture >
+                  <source srcset="assets/images/img_q3_w196.png 1x, assets/images/img_q1_w392.png 2x">
+                  <img src="assets/images/img_q3_w392.png" alt="Créature de City in the Sky">
+              </picture>
             <ul class="choixReponses">
               <li>
                 <input id="Q3A" type="radio" name="Q3" value="Q3A">
@@ -104,17 +123,17 @@
               </li>
             </ul>
           </fieldset>
-          <button type="button" class="btn_soumettre">Soumettre les résultats</button>
             <div class="q3__reponse">
-                <p class="retroaction"><?= array_key_exists('Q3', $arrExpReponse) ? $arrExpReponse['Q3']['retroaction'] : ''; ?></p>
-                <picture>PLACEHOLDER</picture>
-                <p class="explication"><?= array_key_exists('Q3', $arrExpReponse) ? $arrExpReponse['Q3']['explication'] : ''; ?></p>
+                <p class="retroaction"></p>
+                <picture class="img_rep">
+                    <!--<source srcset="assets/images/img_q3_rep_w132.png 1x, assets/images/img_q3_rep_w264.png 2x">-->
+                    <!--<img src="assets/images/img_q3_rep_w264.png" alt="Ooccoo et Ooccoo Jr.">-->
+                </picture>
+                <p class="explication"></p>
             </div>
             <p class="erreur" aria-live="assertive" aria-atomic="true">
-                <?= array_key_exists('Q3', $arrErreurs) ? $arrErreurs['Q3'] : ''; ?>
             </p>
             <button id='validerQuiz' name='validerQuiz' type="submit">Valider mes choix</button>
-
         </section>
         </form>
 
@@ -126,7 +145,7 @@
 
 <footer role="contentinfo">
   <small>Rose Provencher; Toutes les images appartiennent à Nintendo, 2018</small>
-  <a href="">Voir les sources des images et les attributions</a>
+  <a href="attributions.html">Voir les sources des images et les attributions</a>
 </footer>
 
 <!--balise script cdn à jour été 2018-->

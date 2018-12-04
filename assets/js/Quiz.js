@@ -14,6 +14,7 @@ define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     //TODO:Commentaires
+    //TODO Régler doublon du bouton suivant causé par input.checked
     class Quiz {
         constructor() {
             this.questionActive = 1;
@@ -41,8 +42,8 @@ define(["require", "exports"], function (require, exports) {
                 this.refArrChoixQ3[intCpt].addEventListener('blur', this.validerChoixReponseQ3.bind(this));
                 this.refArrChoixQ3[intCpt].addEventListener('click', this.validerChoixReponseQ3.bind(this));
             }
-            this.Q1.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
-            this.Q2.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
+            // this.Q1.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
+            // this.Q2.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
         }
         /**
          * Promesse pour le fetch du fichier JSON
@@ -63,6 +64,7 @@ define(["require", "exports"], function (require, exports) {
          * Définit l'état initial de l'App en version "riche"
          */
         initialiser() {
+            // const button:HTMLButtonElement = document.createElement('button');
             // Cacher le bouton de soumission du formulaire
             this.btnValiderQuiz.style.display = 'none';
             // Cacher toutes les questions
@@ -70,6 +72,14 @@ define(["require", "exports"], function (require, exports) {
             this.Q3.style.display = 'none';
             // Afficher première question
             this.afficherQuestion(this.questionActive);
+            //Afficher bouton prochaine question
+            // button.className = 'btn_next';
+            // button.innerHTML = 'Prochaine question';
+            // button.type = 'button';
+            // document
+            //     .getElementById('Q1')
+            //     .appendChild(button)
+            //     .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this))
         }
         /**
          * Affiche une question
@@ -77,6 +87,8 @@ define(["require", "exports"], function (require, exports) {
          */
         afficherQuestion(no) {
             document.getElementById('Q' + no).style.display = 'block';
+            document.querySelector('.indicateurQuestion')
+                .innerHTML = 'Question ' + no + ' de 3';
         }
         /**
          * Cache une question
@@ -98,33 +110,92 @@ define(["require", "exports"], function (require, exports) {
         }
         validerChoixReponseQ1(evenement) {
             const element = evenement.currentTarget;
+            const imgContenu = '<source srcset="assets/images/img_q1_rep_w200.png 1x, assets/images/img_q1_rep_w400.png 2x">' +
+                '<img src="assets/images/img_q1_rep_w200.png" alt="Image de Link avec son ocarina">';
             let arrIsChecked = new Array();
             this.refArrChoixQ1.forEach((input) => {
                 arrIsChecked.push(input.checked);
+                input.disabled = true;
             });
             if (arrIsChecked.indexOf(true) == -1) {
                 this.afficherErreur(element);
+            }
+            else {
+                this.afficherRetroactionReponse(element, 1, imgContenu);
             }
         }
         validerChoixReponseQ2(evenement) {
             const element = evenement.currentTarget;
+            const imgContenu = '<source media="(min-width:601px)" srcset="assets/images/img_q2_rep_w322.png">' +
+                '<source media="(max-width:600px)" srcset="assets/images/img_q2_rep_w161.png 1x, assets/images/img_q2_rep_w322.png 2x">' +
+                '<img src="assets/images/img_q2_rep_w322.png" alt="Déesses du Triforce">';
             let arrIsChecked = new Array();
             this.refArrChoixQ2.forEach((input) => {
                 arrIsChecked.push(input.checked);
+                input.disabled = true;
             });
             if (arrIsChecked.indexOf(true) == -1) {
                 this.afficherErreur(element);
+            }
+            else {
+                this.afficherRetroactionReponse(element, 2, imgContenu);
             }
         }
         validerChoixReponseQ3(evenement) {
             const element = evenement.currentTarget;
+            const imgContenu = '<source srcset="assets/images/img_q3_rep_w132.png 1x, assets/images/img_q3_rep_w264.png 2x">' +
+                '<img src="assets/images/img_q3_rep_w264.png" alt="Ooccoo et Ooccoo Jr.">';
             let arrIsChecked = new Array();
             this.refArrChoixQ3.forEach((input) => {
                 arrIsChecked.push(input.checked);
+                input.disabled = true;
             });
             if (arrIsChecked.indexOf(true) == -1) {
                 this.afficherErreur(element);
             }
+            else {
+                this.afficherRetroactionReponse(element, 3, imgContenu);
+            }
+        }
+        afficherRetroactionReponse(element, noQuestion, imgContenu) {
+            let retroaction = 'positive';
+            const explications = element.closest('section')
+                .querySelector('.q' + noQuestion + '__reponse');
+            // Création du bouton
+            const button = document.createElement('button');
+            button.type = 'button';
+            if (noQuestion == 3) {
+                button.className = 'btn_soumettre';
+                button.innerHTML = 'Soumettre les résultats';
+                explications
+                    .appendChild(button)
+                    .addEventListener('click', this.afficherResultatsFinaux.bind(this));
+            }
+            else {
+                button.className = 'btn_next';
+                button.innerHTML = 'Prochaine question';
+                explications
+                    .appendChild(button)
+                    .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
+            }
+            element.closest('.choixReponses')
+                .querySelector('[value=' + this.objJSONQuiz['bonnesReponses'][noQuestion - 1] + ']')
+                .closest('li')
+                .style = 'border: 1px solid green';
+            //Vérifier la rétroaction de la question
+            if (element.value != this.objJSONQuiz['bonnesReponses'][noQuestion - 1]) {
+                retroaction = 'negative';
+            }
+            //Insérer les informations dans les balises appropriées
+            explications
+                .querySelector('.retroaction')
+                .innerHTML = this.objJSONQuiz['retroactions'][retroaction];
+            explications
+                .querySelector('.img_rep')
+                .innerHTML = imgContenu;
+            explications
+                .querySelector('.explication')
+                .innerHTML = this.objJSONQuiz['explications']['Q' + noQuestion];
         }
         afficherErreur(element) {
             this.effacerErreur(element);
