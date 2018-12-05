@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Quiz - The Legend of Zelda</title>
+  <title>Quiz - Quiz The Legend of Zelda</title>
   <!--<link rel="stylesheet" href="assets/css/styles.css">-->
 
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/app-icones/apple-icon-57x57.png">
@@ -39,7 +39,7 @@
     </a>
 </header>
 
-<main>
+<main class="pageQuiz">
     <p class="indicateurQuestion"></p>
     <p><span class="icone">icone pouch</span> <span><?= $pointage; ?></span></p>
     <form action="resultats.php" novalidate>
@@ -61,7 +61,7 @@
               </li>
               <li>
                 <input id="Q1C" type="radio" name="Q1" value="Q1C">
-                <label for="Q1C">C. Le Chant du temps</label>
+                <label for="Q1C">C. Le chant du temps</label>
               </li>
             </ul>
 
@@ -69,8 +69,6 @@
         <div class="q1__reponse">
             <p class="retroaction"><?= array_key_exists('Q1', $arrExpReponse) ? $arrExpReponse['Q1']['retroaction'] : ''; ?></p>
             <picture class="img_rep">
-                <!--<source srcset="assets/images/img_q1_rep_w200.png 1x, assets/images/img_q1_rep_w400.png 2x">-->
-                <!--<img src="assets/images/img_q1_rep_w200.png" alt="Image de Link avec son ocarina">-->
             </picture>
             <p class="explication"></p>
         </div>
@@ -108,9 +106,6 @@
             <div class="q2__reponse">
                 <p class="retroaction"></p>
                 <picture class="img_rep">
-                    <!--<source media="(min-width:601px)" srcset="assets/images/img_q2_rep_w322.png">-->
-                    <!--<source media="(max-width:600px)" srcset="assets/images/img_q2_rep_w161.png 1x, assets/images/img_q2_rep_w322.png 2x">-->
-                    <!--<img src="assets/images/img_q2_rep_w322.png" alt="Déesses du Triforce">-->
                 </picture>
                 <p class="explication"></p>
             </div>
@@ -147,8 +142,6 @@
             <div class="q3__reponse">
                 <p class="retroaction"></p>
                 <picture class="img_rep">
-                    <!--<source srcset="assets/images/img_q3_rep_w132.png 1x, assets/images/img_q3_rep_w264.png 2x">-->
-                    <!--<img src="assets/images/img_q3_rep_w264.png" alt="Ooccoo et Ooccoo Jr.">-->
                 </picture>
                 <p class="explication"></p>
             </div>
@@ -158,8 +151,15 @@
         </section>
         </form>
 
-    <section class="pageResultat">
-        Ajouter la section resultat en TS.
+    <section class="resultats">
+        <!--<p class="resultats__titre">Vous avez terminé le quiz !</p>-->
+
+        <!--<div class="resultats__statistiques">-->
+            <!--<p>Vous avez obtenu <?= $intPointage ?> rupees !</p>-->
+            <!--<p><?= $intRepCorrectes ?> sur 3 questions de réussi !</p>-->
+        <!--</div>-->
+
+        <!--<a href="quiz.html" class="bouton">Recommencer le quiz</a>-->
     </section>
 </main>
 

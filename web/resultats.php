@@ -27,7 +27,7 @@ if (isset($_GET['validerQuiz'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Quiz - The Legend of Zelda</title>
+    <title>Resultats - Quiz The Legend of Zelda</title>
     <!--<link rel="stylesheet" href="assets/css/styles.css">-->
 </head>
 <body>

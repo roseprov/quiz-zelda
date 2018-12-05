@@ -8,6 +8,7 @@
 
 export class Quiz {
 
+    //Attributs
     private questionActive: number = 1;
     private pointage: number = 0;
     private objJSONQuiz: JSON;
@@ -81,37 +82,54 @@ export class Quiz {
 
     /**
      * Cache une question
-     * @param no
+     * @param no Numéro de la quesstion
      */
     private cacherQuestion(no:number):void {
         document.getElementById('Q'+no).style.display = 'none';
     }
 
-    private cliquerBoutonValiderMonChoix(evenement: Event):void {
-
+    /**
+     * Actions lorsque le bouton soumettre est cliqué
+     * @param evenement Élément/Input écouté
+     */
+    private cliquerBoutonSoumettreMesChoix(evenement: Event):void {
+        this.cacherQuestion(this.questionActive);
+        this.afficherResultatsFinaux();
     }
 
+    /**
+     * Actions lorsque le bouton Suivant est cliqué
+     * @param evenement Élément/Input écouté
+     */
     private cliquerBoutonProchaineQuestion(evenement: Event):void {
         this.cacherQuestion(this.questionActive);
         this.questionActive++;
         this.afficherQuestion(this.questionActive);
     }
 
-
+    /**
+     * Affichage de la section résultats
+     */
     private afficherResultatsFinaux():void {
-
+        document.querySelector('.resultats')
+            .innerHTML =
+            '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
+            '<div class="resultats__statistiques">' +
+            '     <p>Vous avez obtenu <?= $intPointage ?> rupees !</p>' +
+            '</div>' +
+            '<a href="quiz.html" class="bouton">Recommencer le quiz</a>';
     }
 
-    private cliquerRecommencerQuiz(evenement: Event):void {
-
-    }
-
-
+    /**
+     * Validations de la première question
+     * @param evenement Élément/Input écouté
+     */
     private validerChoixReponseQ1(evenement):void{
         const element:HTMLInputElement = evenement.currentTarget;
         const imgContenu =
             '<source srcset="assets/images/img_q1_rep_w200.png 1x, assets/images/img_q1_rep_w400.png 2x">' +
             '<img src="assets/images/img_q1_rep_w200.png" alt="Image de Link avec son ocarina">';
+
         let arrIsChecked:Array<boolean> = new Array();
         this.refArrChoixQ1.forEach((input) => {
             arrIsChecked.push(input.checked);
@@ -126,6 +144,10 @@ export class Quiz {
         }
     }
 
+    /**
+     * Validations de la deuxième question
+     * @param evenement Élément/Input écouté
+     */
     private validerChoixReponseQ2(evenement):void{
         const element:HTMLInputElement = evenement.currentTarget;
         const imgContenu =
@@ -147,6 +169,10 @@ export class Quiz {
         }
     }
 
+    /**
+     * Validations de la troisième question
+     * @param evenement Élément/Input écouté
+     */
     private validerChoixReponseQ3(evenement):void{
         const element:HTMLInputElement = evenement.currentTarget;
         const imgContenu =
@@ -167,29 +193,22 @@ export class Quiz {
         }
     }
 
+    /**
+     * Affichage de la réponse et de ses explications
+     * @param element Élément écouté
+     * @param noQuestion Numéro de la question
+     * @param imgContenu Balises de l'image réponse
+     */
     private afficherRetroactionReponse(element:HTMLInputElement, noQuestion:number, imgContenu:string):void {
+
         let retroaction:string = 'positive';
         const explications:HTMLElement = element.closest('section')
             .querySelector('.q'+noQuestion+'__reponse');
+
         // Création du bouton
-        const button:HTMLButtonElement = document.createElement('button');
-        button.type = 'button';
-        if(noQuestion == 3){
-            button.className = 'btn_soumettre';
-            button.innerHTML = 'Soumettre les résultats';
+        this.creerBouton(noQuestion, explications);
 
-            explications
-                .appendChild(button)
-                .addEventListener('click', this.afficherResultatsFinaux.bind(this));
-        } else {
-            button.className = 'btn_next';
-            button.innerHTML = 'Prochaine question';
-
-            explications
-                .appendChild(button)
-                .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
-        }
-
+        //Surligner la bonne réponse
         element.closest('.choixReponses')
             .querySelector('[value=' + this.objJSONQuiz['bonnesReponses'][noQuestion-1] + ']')
             .closest('li')
@@ -213,6 +232,36 @@ export class Quiz {
 
     }
 
+    /**
+     * Création du bouton SUIVANT ou SOUMETTRE
+     * @param noQuestion Numéro de la question
+     * @param explications Section des explications
+     */
+    private creerBouton(noQuestion:number, explications:HTMLElement):void {
+        const button:HTMLButtonElement = document.createElement('button');
+        button.type = 'button';
+        //Si c'est la dernière question
+        if(noQuestion == 3){
+            button.className = 'btn_soumettre';
+            button.innerHTML = 'Soumettre les résultats';
+            console.log('in');
+            explications
+                .appendChild(button)
+                .addEventListener('click', this.cliquerBoutonSoumettreMesChoix.bind(this));
+        } else {
+            button.className = 'btn_next';
+            button.innerHTML = 'Prochaine question';
+
+            explications
+                .appendChild(button)
+                .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
+        }
+    }
+
+    /**
+     * Affichage de l'erreur (si non coché)
+     * @param element Input HTML écouté
+     */
     private afficherErreur(element:HTMLInputElement):void{
         this.effacerErreur(element);
 

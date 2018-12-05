@@ -64,7 +64,6 @@ define(["require", "exports"], function (require, exports) {
          * Définit l'état initial de l'App en version "riche"
          */
         initialiser() {
-            // const button:HTMLButtonElement = document.createElement('button');
             // Cacher le bouton de soumission du formulaire
             this.btnValiderQuiz.style.display = 'none';
             // Cacher toutes les questions
@@ -72,14 +71,6 @@ define(["require", "exports"], function (require, exports) {
             this.Q3.style.display = 'none';
             // Afficher première question
             this.afficherQuestion(this.questionActive);
-            //Afficher bouton prochaine question
-            // button.className = 'btn_next';
-            // button.innerHTML = 'Prochaine question';
-            // button.type = 'button';
-            // document
-            //     .getElementById('Q1')
-            //     .appendChild(button)
-            //     .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this))
         }
         /**
          * Affiche une question
@@ -97,7 +88,10 @@ define(["require", "exports"], function (require, exports) {
         cacherQuestion(no) {
             document.getElementById('Q' + no).style.display = 'none';
         }
-        cliquerBoutonValiderMonChoix(evenement) {
+        cliquerBoutonSoumettreMesChoix(evenement) {
+            this.cacherQuestion(this.questionActive);
+            this.afficherResultatsFinaux();
+            console.log('in');
         }
         cliquerBoutonProchaineQuestion(evenement) {
             this.cacherQuestion(this.questionActive);
@@ -105,6 +99,14 @@ define(["require", "exports"], function (require, exports) {
             this.afficherQuestion(this.questionActive);
         }
         afficherResultatsFinaux() {
+            console.log('In');
+            document.querySelector('.resultats')
+                .innerHTML =
+                '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
+                    '<div class="resultats__statistiques">' +
+                    '     <p>Vous avez obtenu <?= $intPointage ?> rupees !</p>' +
+                    '</div>' +
+                    '<a href="quiz.html" class="bouton">Recommencer le quiz</a>';
         }
         cliquerRecommencerQuiz(evenement) {
         }
@@ -162,22 +164,7 @@ define(["require", "exports"], function (require, exports) {
             const explications = element.closest('section')
                 .querySelector('.q' + noQuestion + '__reponse');
             // Création du bouton
-            const button = document.createElement('button');
-            button.type = 'button';
-            if (noQuestion == 3) {
-                button.className = 'btn_soumettre';
-                button.innerHTML = 'Soumettre les résultats';
-                explications
-                    .appendChild(button)
-                    .addEventListener('click', this.afficherResultatsFinaux.bind(this));
-            }
-            else {
-                button.className = 'btn_next';
-                button.innerHTML = 'Prochaine question';
-                explications
-                    .appendChild(button)
-                    .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
-            }
+            this.creerBouton(noQuestion, explications);
             element.closest('.choixReponses')
                 .querySelector('[value=' + this.objJSONQuiz['bonnesReponses'][noQuestion - 1] + ']')
                 .closest('li')
@@ -196,6 +183,24 @@ define(["require", "exports"], function (require, exports) {
             explications
                 .querySelector('.explication')
                 .innerHTML = this.objJSONQuiz['explications']['Q' + noQuestion];
+        }
+        creerBouton(noQuestion, explications) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            if (noQuestion == 3) {
+                button.className = 'btn_soumettre';
+                button.innerHTML = 'Soumettre les résultats';
+                explications
+                    .appendChild(button)
+                    .addEventListener('click', this.cliquerBoutonSoumettreMesChoix.bind(this));
+            }
+            else {
+                button.className = 'btn_next';
+                button.innerHTML = 'Prochaine question';
+                explications
+                    .appendChild(button)
+                    .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
+            }
         }
         afficherErreur(element) {
             this.effacerErreur(element);
