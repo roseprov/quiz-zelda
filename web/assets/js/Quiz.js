@@ -14,10 +14,11 @@ define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     //TODO:Commentaires
-    //TODO Régler doublon du bouton suivant causé par input.checked
     class Quiz {
         constructor() {
+            //Attributs
             this.questionActive = 1;
+            this.questionsReussi = 0;
             this.pointage = 0;
             this.Q1 = document.getElementById('Q1');
             this.Q2 = document.getElementById('Q2');
@@ -31,19 +32,17 @@ define(["require", "exports"], function (require, exports) {
             this.initialiser();
             //Écouteurs d'événements
             for (let intCpt = 0; intCpt < this.refArrChoixQ1.length; intCpt++) {
-                this.refArrChoixQ1[intCpt].addEventListener('blur', this.validerChoixReponseQ1.bind(this));
+                // this.refArrChoixQ1[intCpt].addEventListener('blur', this.validerChoixReponseQ1.bind(this));
                 this.refArrChoixQ1[intCpt].addEventListener('click', this.validerChoixReponseQ1.bind(this));
             }
             for (let intCpt = 0; intCpt < this.refArrChoixQ2.length; intCpt++) {
-                this.refArrChoixQ2[intCpt].addEventListener('blur', this.validerChoixReponseQ2.bind(this));
+                // this.refArrChoixQ2[intCpt].addEventListener('blur', this.validerChoixReponseQ2.bind(this));
                 this.refArrChoixQ2[intCpt].addEventListener('click', this.validerChoixReponseQ2.bind(this));
             }
             for (let intCpt = 0; intCpt < this.refArrChoixQ3.length; intCpt++) {
-                this.refArrChoixQ3[intCpt].addEventListener('blur', this.validerChoixReponseQ3.bind(this));
+                // this.refArrChoixQ3[intCpt].addEventListener('blur', this.validerChoixReponseQ3.bind(this));
                 this.refArrChoixQ3[intCpt].addEventListener('click', this.validerChoixReponseQ3.bind(this));
             }
-            // this.Q1.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
-            // this.Q2.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
         }
         /**
          * Promesse pour le fetch du fichier JSON
@@ -83,33 +82,45 @@ define(["require", "exports"], function (require, exports) {
         }
         /**
          * Cache une question
-         * @param no
+         * @param no Numéro de la quesstion
          */
         cacherQuestion(no) {
             document.getElementById('Q' + no).style.display = 'none';
         }
+        /**
+         * Actions lorsque le bouton soumettre est cliqué
+         * @param evenement Élément/Input écouté
+         */
         cliquerBoutonSoumettreMesChoix(evenement) {
             this.cacherQuestion(this.questionActive);
             this.afficherResultatsFinaux();
-            console.log('in');
         }
+        /**
+         * Actions lorsque le bouton Suivant est cliqué
+         * @param evenement Élément/Input écouté
+         */
         cliquerBoutonProchaineQuestion(evenement) {
             this.cacherQuestion(this.questionActive);
             this.questionActive++;
             this.afficherQuestion(this.questionActive);
         }
+        /**
+         * Affichage de la section résultats
+         */
         afficherResultatsFinaux() {
-            console.log('In');
             document.querySelector('.resultats')
                 .innerHTML =
                 '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
                     '<div class="resultats__statistiques">' +
-                    '     <p>Vous avez obtenu <?= $intPointage ?> rupees !</p>' +
+                    '     <p>Vous avez obtenu ' + this.pointage + ' rupees !</p>' +
+                    '     <p>' + this.questionsReussi + ' sur 3 questions de réussi !</p>' +
                     '</div>' +
                     '<a href="quiz.html" class="bouton">Recommencer le quiz</a>';
         }
-        cliquerRecommencerQuiz(evenement) {
-        }
+        /**
+         * Validations de la première question
+         * @param evenement Élément/Input écouté
+         */
         validerChoixReponseQ1(evenement) {
             const element = evenement.currentTarget;
             const imgContenu = '<source srcset="assets/images/img_q1_rep_w200.png 1x, assets/images/img_q1_rep_w400.png 2x">' +
@@ -126,6 +137,10 @@ define(["require", "exports"], function (require, exports) {
                 this.afficherRetroactionReponse(element, 1, imgContenu);
             }
         }
+        /**
+         * Validations de la deuxième question
+         * @param evenement Élément/Input écouté
+         */
         validerChoixReponseQ2(evenement) {
             const element = evenement.currentTarget;
             const imgContenu = '<source media="(min-width:601px)" srcset="assets/images/img_q2_rep_w322.png">' +
@@ -143,6 +158,10 @@ define(["require", "exports"], function (require, exports) {
                 this.afficherRetroactionReponse(element, 2, imgContenu);
             }
         }
+        /**
+         * Validations de la troisième question
+         * @param evenement Élément/Input écouté
+         */
         validerChoixReponseQ3(evenement) {
             const element = evenement.currentTarget;
             const imgContenu = '<source srcset="assets/images/img_q3_rep_w132.png 1x, assets/images/img_q3_rep_w264.png 2x">' +
@@ -159,19 +178,32 @@ define(["require", "exports"], function (require, exports) {
                 this.afficherRetroactionReponse(element, 3, imgContenu);
             }
         }
+        /**
+         * Affichage de la réponse et de ses explications
+         * @param element Élément écouté
+         * @param noQuestion Numéro de la question
+         * @param imgContenu Balises de l'image réponse
+         */
         afficherRetroactionReponse(element, noQuestion, imgContenu) {
+            console.log('in');
             let retroaction = 'positive';
+            const bonneReponse = this.objJSONQuiz['bonnesReponses'][noQuestion - 1];
             const explications = element.closest('section')
                 .querySelector('.q' + noQuestion + '__reponse');
             // Création du bouton
             this.creerBouton(noQuestion, explications);
+            //Surligner la bonne réponse
             element.closest('.choixReponses')
-                .querySelector('[value=' + this.objJSONQuiz['bonnesReponses'][noQuestion - 1] + ']')
+                .querySelector('[value=' + bonneReponse + ']')
                 .closest('li')
                 .style = 'border: 1px solid green';
             //Vérifier la rétroaction de la question
-            if (element.value != this.objJSONQuiz['bonnesReponses'][noQuestion - 1]) {
+            if (element.value != bonneReponse) {
                 retroaction = 'negative';
+            }
+            else {
+                this.questionsReussi += 1;
+                this.pointage += this.objJSONQuiz['pointsReponse'][noQuestion - 1];
             }
             //Insérer les informations dans les balises appropriées
             explications
@@ -184,12 +216,19 @@ define(["require", "exports"], function (require, exports) {
                 .querySelector('.explication')
                 .innerHTML = this.objJSONQuiz['explications']['Q' + noQuestion];
         }
+        /**
+         * Création du bouton SUIVANT ou SOUMETTRE
+         * @param noQuestion Numéro de la question
+         * @param explications Section des explications
+         */
         creerBouton(noQuestion, explications) {
             const button = document.createElement('button');
             button.type = 'button';
+            //Si c'est la dernière question
             if (noQuestion == 3) {
                 button.className = 'btn_soumettre';
                 button.innerHTML = 'Soumettre les résultats';
+                //console.log('in');
                 explications
                     .appendChild(button)
                     .addEventListener('click', this.cliquerBoutonSoumettreMesChoix.bind(this));
@@ -202,6 +241,10 @@ define(["require", "exports"], function (require, exports) {
                     .addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
             }
         }
+        /**
+         * Affichage de l'erreur (si non coché)
+         * @param element Input HTML écouté
+         */
         afficherErreur(element) {
             this.effacerErreur(element);
             const pErreur = element.closest('section').querySelector('.erreur');

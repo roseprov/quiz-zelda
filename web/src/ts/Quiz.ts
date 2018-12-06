@@ -4,12 +4,12 @@
  */
 
 //TODO:Commentaires
-    //TODO Régler doublon du bouton suivant causé par input.checked
 
 export class Quiz {
 
     //Attributs
     private questionActive: number = 1;
+    private questionsReussi:number = 0;
     private pointage: number = 0;
     private objJSONQuiz: JSON;
     private Q1:HTMLElement = document.getElementById('Q1');
@@ -28,19 +28,17 @@ export class Quiz {
 
         //Écouteurs d'événements
         for(let intCpt = 0; intCpt < this.refArrChoixQ1.length; intCpt++){
-            this.refArrChoixQ1[intCpt].addEventListener('blur', this.validerChoixReponseQ1.bind(this));
+            // this.refArrChoixQ1[intCpt].addEventListener('blur', this.validerChoixReponseQ1.bind(this));
             this.refArrChoixQ1[intCpt].addEventListener('click', this.validerChoixReponseQ1.bind(this));
         }
         for(let intCpt = 0; intCpt < this.refArrChoixQ2.length; intCpt++){
-            this.refArrChoixQ2[intCpt].addEventListener('blur', this.validerChoixReponseQ2.bind(this));
+            // this.refArrChoixQ2[intCpt].addEventListener('blur', this.validerChoixReponseQ2.bind(this));
             this.refArrChoixQ2[intCpt].addEventListener('click', this.validerChoixReponseQ2.bind(this));
         }
         for(let intCpt = 0; intCpt < this.refArrChoixQ3.length; intCpt++){
-            this.refArrChoixQ3[intCpt].addEventListener('blur', this.validerChoixReponseQ3.bind(this));
+            // this.refArrChoixQ3[intCpt].addEventListener('blur', this.validerChoixReponseQ3.bind(this));
             this.refArrChoixQ3[intCpt].addEventListener('click', this.validerChoixReponseQ3.bind(this));
         }
-        // this.Q1.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
-        // this.Q2.querySelector('.btn_next').addEventListener('click', this.cliquerBoutonProchaineQuestion.bind(this));
     }
 
     /**
@@ -115,7 +113,8 @@ export class Quiz {
             .innerHTML =
             '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
             '<div class="resultats__statistiques">' +
-            '     <p>Vous avez obtenu <?= $intPointage ?> rupees !</p>' +
+            '     <p>Vous avez obtenu ' + this.pointage + ' rupees !</p>' +
+            '     <p>' + this.questionsReussi + ' sur 3 questions de réussi !</p>' +
             '</div>' +
             '<a href="quiz.html" class="bouton">Recommencer le quiz</a>';
     }
@@ -200,8 +199,9 @@ export class Quiz {
      * @param imgContenu Balises de l'image réponse
      */
     private afficherRetroactionReponse(element:HTMLInputElement, noQuestion:number, imgContenu:string):void {
-
+        console.log('in');
         let retroaction:string = 'positive';
+        const bonneReponse:string = this.objJSONQuiz['bonnesReponses'][noQuestion-1];
         const explications:HTMLElement = element.closest('section')
             .querySelector('.q'+noQuestion+'__reponse');
 
@@ -210,13 +210,16 @@ export class Quiz {
 
         //Surligner la bonne réponse
         element.closest('.choixReponses')
-            .querySelector('[value=' + this.objJSONQuiz['bonnesReponses'][noQuestion-1] + ']')
+            .querySelector('[value=' + bonneReponse + ']')
             .closest('li')
             .style = 'border: 1px solid green';
 
         //Vérifier la rétroaction de la question
-        if(element.value != this.objJSONQuiz['bonnesReponses'][noQuestion-1]){
+        if(element.value != bonneReponse){
             retroaction = 'negative';
+        } else {
+            this.questionsReussi += 1;
+            this.pointage += this.objJSONQuiz['pointsReponse'][noQuestion-1];
         }
 
         //Insérer les informations dans les balises appropriées
@@ -244,7 +247,7 @@ export class Quiz {
         if(noQuestion == 3){
             button.className = 'btn_soumettre';
             button.innerHTML = 'Soumettre les résultats';
-            console.log('in');
+            //console.log('in');
             explications
                 .appendChild(button)
                 .addEventListener('click', this.cliquerBoutonSoumettreMesChoix.bind(this));
