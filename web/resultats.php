@@ -50,8 +50,11 @@ if (isset($_GET['validerQuiz'])) {
 </main>
 
 <footer class="footer" role="contentinfo">
-    <small>Rose Provencher; Toutes les images appartiennent à Nintendo, 2018</small>
-    <a href="attributions.html">Voir les sources des images et les attributions</a>
+    <span class="creditPhoto"><a href="www.jeffbrowngraphics.com">Art de Jeff Brown</a></span>
+    <div class="fond">
+        <small>Rose Provencher; Toutes les images appartiennent à © Nintendo, 2018</small>
+        <a href="attributions.html" class="attributions">Voir les sources des images/médias et les attributions</a>
+    </div>
 </footer>
 
 </body>

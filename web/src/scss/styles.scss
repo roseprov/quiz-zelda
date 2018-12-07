@@ -65,6 +65,106 @@
   height: 75px;
 }
 
+.title{
+  margin:0;
+}
+
+.pageAccueil {
+  position: relative;
+
+  font-family: $fonteBold;
+  color: white;
+
+  background: url('../images/bg_accueil_w800.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  @media(min-width: $tablettePaysage) {
+    background: url('../images/bg_accueil_w1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+  }
+  @media(min-width: $desktop) {
+    background: url('../images/bg_accueil_w2560.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+  .containerAccueil {
+    display:flex;
+    flex-direction: column;
+    
+    @media (min-width: $tablettePortrait) {
+      align-items:flex-end;
+    }
+    @media (min-width:$tablettePaysage){
+      justify-content: space-around;
+    }
+
+    .titre {
+      margin: 2rem 0 0 0;
+      color: $noir;
+      @include fontSize(26px);
+
+      @media(min-width: $tablettePortrait) {
+        @include fontSize(34px);
+        width: span(3 of 4);
+      }
+      @media(min-width: $tablettePaysage) {
+        @include fontSize(36px);
+        width: span(6 of 12);
+        margin-right:span(1 wide of 12);
+      }
+      @media(min-width: $desktop){
+        width: span(5 of 12);
+      }
+
+    }
+
+
+    .introduction {
+      display: block;
+      line-height: 26px;
+      background-color: $noir60;
+
+      padding: 1rem 2rem;
+      margin: 5rem -2rem;
+
+      @include fontSize(16px);
+
+      p{
+        padding-right: 4rem;
+        padding-left: 1rem;
+        &:first-child{
+          margin-bottom: 2rem;
+        }
+      }
+
+      @media(min-width: $tablettePortrait) {
+        width: span(3 of 4)+gutter()/2;
+        padding-right: 2rem;
+      }
+
+      @media(min-width: $tablettePaysage){
+        padding-right: span(1 of 12);
+        margin:  5rem 0;
+        width:span(7 of 12);
+      }
+
+      @media(min-width: $desktop){
+        width:span(5 of 12);
+        padding-right:0;
+        margin-right: span(1 wide of 12);
+
+      }
+    }
+    .btnSoumettre{
+      @media(min-width: $tablettePaysage){
+        margin-right: span(1 wide of 12);
+        //width:span(4 of 12);
+      }
+    }
+  }
+
 .pageQuiz{
   font-family: $fonte;
   text-align: center;
@@ -149,6 +249,9 @@
   }
 
   .reponse{
+    .retroaction{
+      margin-top:0;
+    }
     .flex{
       display:block;
       @include fontSize(16px);
@@ -156,6 +259,9 @@
 
       .explication{
         text-align: left;
+        p{
+          margin:0 0 1rem 0;
+        }
       }
 
       .imgReponse{
@@ -164,18 +270,22 @@
         }
       }
 
+
       @media(min-width: $tablettePortrait){
         display:flex;
         justify-content: center;
-
+        margin:auto;
+        width:span(3 of 4);
         .imgReponse{
-          width:span(1 of 4);
+          img{
+            width:100%;
+          }
+          width:span(1 of 3);
           margin-right:gutter();
         }
 
         .explication{
-          display:inline-block;
-            width:span(2 of 4);
+          width:span(2 of 3);
         }
       }
     }
@@ -185,17 +295,40 @@
 }
 
 .footer{
-  text-align: center;
-  background-color: $noir;
-  color: #B2B2B2;
-  font-family: Cabin, Helvetica, sans-serif;
-  padding:0.25rem;
-  @include fontSize(12px);
+  display:block;
+  width:100%;
 
-  .attributions{
-    display:block;
+  .creditPhoto{
+    color: $blanc;
+    a{
+      text-decoration: none;
+    }
+    @include fontSize(10px);
+    font-family: Cabin, Helvetica, sans-serif;
+  }
+
+  .fond{
+    text-align: center;
+    background-color: $noir;
     color: #B2B2B2;
     font-family: Cabin, Helvetica, sans-serif;
-    @include fontSize(10px);
+    padding:0.25rem;
+    @include fontSize(12px);
+
+    .attributions{
+      display:block;
+      color: #B2B2B2;
+      font-family: Cabin, Helvetica, sans-serif;
+      @include fontSize(10px);
+    }
+  }
+
+}
+
+
+.pageAccueil{
+  .footer{
+    position: fixed;
+    bottom:0;
   }
 }

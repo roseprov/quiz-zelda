@@ -46,14 +46,15 @@ $erreur: #C03E3E;
 
 $blancFond: rgba(255, 255, 255, 0.5);
 $noirFond: rgba(0, 0, 0, 0.7);
-$noirBox: rgba(0, 0, 0, 0.6);
+$noir60: rgba(0, 0, 0, 0.6);
 
 $ombreHover: 3px 3px 3px rgba(0,0,0,0.16);
-$ombre: 0 2px 3px rgba(0,0,0,0.3);
+$ombre: 0 1px 3px rgba(0,0,0,0.3);
 //Pour utiliser -> box-shadow: $ombrePale;
 
 /** Points de rupture **/
 $mobile: 451px;
-$tablettePortrait: 601px;
-$tablettePaysage: 801px;
-$desktop: 1281px;
+$tablettePortrait: 551px;
+$tablettePaysage: 851px;
+$desktop: 1000px;
+//$desktop: 1282px;

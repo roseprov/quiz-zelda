@@ -1,9 +1,10 @@
 .titre{
+  margin:0;
   font-family: $fonteTitre;
   color:$blanc;
   text-decoration: none;
   text-shadow: $ombre;
-  @include fontSize(20px);
+  //@include fontSize(20px);
 
   .zelda{
     color:$rouge;
@@ -55,3 +56,4 @@
 img{
   width:100%;
 }
+
