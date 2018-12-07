@@ -1,6 +1,5 @@
 /**** BIBLIOTHÈQUES (dans le dossier bower_components) ****/
 @import '../../node_modules/normalize-css/normalize';
-@import '../../node_modules/animate.css/animate.css';
 
 @import '../../node_modules/susy/sass/susy';
 @import '../../node_modules/susy/sass/plugins/svg-grid';
@@ -14,6 +13,7 @@
 @import 'base/typo';
 
 /**** modules ****/
+@import 'modules/animations';
 @import 'modules/general';
 
 /***** MISE EN PAGE SUSY ******/
@@ -60,6 +60,10 @@
 
 /** Styles **/
 
+body{
+  overflow-x: hidden;
+}
+
 .header{
   background-color: $noirFond;
   height: 75px;
@@ -70,8 +74,6 @@
 }
 
 .pageAccueil {
-  position: relative;
-
   font-family: $fonteBold;
   color: white;
 
@@ -120,7 +122,6 @@
 
     }
 
-
     .introduction {
       display: block;
       line-height: 26px;
@@ -160,26 +161,67 @@
     .btnSoumettre{
       @media(min-width: $tablettePaysage){
         margin-right: span(1 wide of 12);
-        //width:span(4 of 12);
       }
     }
   }
 
+.bg_quiz{
+  background:url('../images/bg_quiz.jpg') no-repeat;
+  background-size:cover;
+}
 .pageQuiz{
+  position:relative;
   font-family: $fonte;
   text-align: center;
 
+  @media(min-width:$tablettePaysage){
+    text-align:left;
+  }
+
   .indicateurQuestion,
-  .pointage{
+  .zonePointage{
     font-family: $fonteTitre;
     text-shadow: $ombre;
     @include fontSize(14px);
+  }
+
+  .indicateurQuestion{
+    text-align:center;
+  }
+
+  .zonePointage{
+    text-align: right;
+    margin:auto 1rem;
+  }
+
+  .instructionQuestion{
+    margin:0;
+    text-shadow: $ombre;
+  }
+
+  .icone-pouch{
+    display:inline-block;
+    background: url('../images/icones/pouch_ico.svg') no-repeat;
+    width:2.5rem;
   }
 
   fieldset{
     border:none;
     padding:0;
     margin:0;
+
+    .flex{
+      @media(min-width: $tablettePaysage){
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .flexitem{
+          width:span(5 of 12);
+        }
+      }
+    }
   }
 
   .question{
@@ -191,17 +233,22 @@
     @media(min-width: $mobile){
       @include fontSize(26px);
     }
+    @media(min-width: $tablettePaysage){
+      width:span(4 of 5);
+    }
   }
 
   .q1{
     .imgQuestion{
       img{
+        border:solid 2px $gris;
         width: span(4 of 4);
+
         @media(min-width: $tablettePortrait){
           width:span(2 of 4);
         }
         @media(min-width: $tablettePaysage){
-          width:span(4 of 12);
+          width:span(4 of 5);
         }
       }
     }
@@ -216,6 +263,10 @@
     text-align: left;
     padding:0;
 
+    @media(min-width:$tablettePaysage){
+      display:block;
+    }
+
     .choix {
       border: 2px solid $gris;
       background-color: $blancFond;
@@ -226,7 +277,7 @@
         width:span(2 wider of 4);
       }
       @media(min-width: $tablettePaysage){
-        width:span(5 of 12);
+        width:span(5 of 5);
       }
 
       &:hover{
@@ -249,6 +300,11 @@
   }
 
   .reponse{
+
+    @media(min-width: $tablettePaysage){
+      width:span(5 of 12);
+    }
+
     .retroaction{
       margin-top:0;
     }
@@ -256,40 +312,58 @@
       display:block;
       @include fontSize(16px);
       text-align: center;
+      @media(min-width:$tablettePortrait){
+        display:flex;
+        justify-content: center;
+        margin:auto;
+        width:span(3 of 4);
+      }
+      @media(min-width: $tablettePaysage){
+        width:100%;
+      }
 
       .explication{
         text-align: left;
+        font-family: $fonteBold;
+        text-shadow: $ombre;
         p{
           margin:0 0 1rem 0;
+        }
+        @media(min-width:$tablettePortrait){
+          width:span(2 of 3);
+        }
+        @media(min-width: $tablettePaysage){
+
         }
       }
 
       .imgReponse{
         img{
           width:span(2 of 4);
-        }
-      }
-
-
-      @media(min-width: $tablettePortrait){
-        display:flex;
-        justify-content: center;
-        margin:auto;
-        width:span(3 of 4);
-        .imgReponse{
-          img{
+          @media(min-width:$tablettePortrait){
             width:100%;
           }
+        }
+        @media(min-width:$tablettePortrait){
           width:span(1 of 3);
           margin-right:gutter();
         }
-
-        .explication{
-          width:span(2 of 3);
+        @media(min-width: $tablettePaysage){
+          width:span(2 of 5)
         }
       }
     }
 
+    .btn_next{
+      @media(min-width: $tablettePortrait){
+        margin-left:span(2 wide of 4);
+      }
+      @media(min-width: $tablettePaysage){
+        //margin-left:span(8 of 12)+gutter()/3;
+        width:span(3 of 5);
+        margin-left:span(2 wide of 5);
+      }
+    }
   }
 
 }

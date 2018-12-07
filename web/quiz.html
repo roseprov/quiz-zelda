@@ -28,7 +28,7 @@
     <meta name="apple-mobile-web-app-status-title" content="#ffffff">
 </head>
 
-<body>
+<body class="bg_quiz">
 <!-- Canevas de départ proposé pour la version "pauvre" -->
 
 
@@ -43,33 +43,38 @@
 
 <main class="pageQuiz">
     <div class="conteneur">
-    <p class="zonePointage"><span class="icone">icone pouch</span> <span class="pointage">0</span></p>
+    <p class="zonePointage"><span class="icone-pouch"></span> <span class="pointage">0</span></p>
     <p class="indicateurQuestion"></p>
 
     <form action="resultats.php" novalidate>
         <section id="Q1" class="q1">
           <fieldset class="q1__questions">
-            <legend class="question">Quel est le nom de cette mélodie ?</legend>
-            <picture class="imgQuestion">
-                <source srcset="assets/images/img_q1_w417.jpg 1x, assets/images/img_q1_w680.jpg 2x">
-                <img src="assets/images/img_q1_w417.jpg" alt="Mélodie dans Ocarina of Time">
-            </picture>
-              <p>Veuillez selectionner la bonne réponse</p>
-            <ul class="choixReponses">
-              <li class="choix">
-                <input id="Q1A" type="radio" class="input" name="Q1" value="Q1A">
-                <label class="label" for="Q1A"><span>La berceuse de Zelda</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q1B" type="radio" class="input" name="Q1" value="Q1B">
-                <label class="label" for="Q1B"><span>Le chant de Saria</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q1C" type="radio" class="input" name="Q1" value="Q1C">
-                <label class="label" for="Q1C"><span>Le chant du temps</span></label>
-              </li>
-            </ul>
-
+              <div class="flex">
+              <div class="flexitem">
+                <legend class="question">Quel est le nom de cette mélodie ?</legend>
+                <picture class="imgQuestion">
+                    <source srcset="assets/images/img_q1_w417.jpg 1x, assets/images/img_q1_w680.jpg 2x">
+                    <img src="assets/images/img_q1_w417.jpg" alt="Mélodie dans Ocarina of Time">
+                </picture>
+              </div>
+              <div class="flexitem">
+                  <p class="instructionQuestion">Veuillez selectionner la bonne réponse</p>
+                  <ul class="choixReponses">
+                      <li class="choix">
+                          <input id="Q1A" type="radio" class="input" name="Q1" value="Q1A">
+                          <label class="label" for="Q1A"><span>La berceuse de Zelda</span></label>
+                      </li>
+                      <li class="choix">
+                          <input id="Q1B" type="radio" class="input" name="Q1" value="Q1B">
+                          <label class="label" for="Q1B"><span>Le chant de Saria</span></label>
+                      </li>
+                      <li class="choix">
+                          <input id="Q1C" type="radio" class="input" name="Q1" value="Q1C">
+                          <label class="label" for="Q1C"><span>Le chant du temps</span></label>
+                      </li>
+                  </ul>
+              </div>
+              </div>
           </fieldset>
         <div class="reponse">
             <p class="retroaction"></p>
@@ -85,30 +90,36 @@
 
         <section id="Q2" class="q2">
           <fieldset class="q2__questions">
-            <legend class="question">Quels sont les noms des trois divinités qui ont créé le Triforce ?</legend>
-              <picture class="imgQuestion">
-                  <source media="(min-width:601px)" srcset="assets/images/img_q2_w320.png 1x, assets/images/img_q1_w834.png 2x">
-                  <source media="(max-width:600px)" srcset="assets/images/img_q2_w160.png 1x, assets/images/img_q1_w320.png 2x">
-                  <img src="assets/images/img_q2_w320.png" alt="Blason du Triforce">
-              </picture>
-              <ul class="choixReponses">
-              <li class="choix">
-                <input id="Q2A" type="radio" class="input" name="Q2" value="Q2A">
-                <label class="label" for="Q2A"><span>Zelda, Sheik, Impa</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q2B" type="radio" class="input" name="Q2" value="Q2B">
-                <label class="label" for="Q2B"><span>Zelda, Link, Ganon</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q2C" type="radio" class="input" name="Q2" value="Q2C">
-                <label class="label" for="Q2C"><span>Saria, Ruto, Nabooru</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q2D" type="radio" class="input" name="Q2" value="Q2D">
-                <label class="label" for="Q2D"><span>Din, Nayru, Farore</span></label>
-              </li>
-            </ul>
+              <div class="flex">
+                  <div class="flexitem">
+                      <legend class="question">Quels sont les noms des trois divinités qui ont créé le Triforce ?</legend>
+                      <picture class="imgQuestion">
+                          <source media="(min-width:601px)" srcset="assets/images/img_q2_w320.png 1x, assets/images/img_q1_w834.png 2x">
+                          <source media="(max-width:600px)" srcset="assets/images/img_q2_w160.png 1x, assets/images/img_q1_w320.png 2x">
+                          <img src="assets/images/img_q2_w320.png" alt="Blason du Triforce">
+                      </picture>
+                  </div>
+                  <div class="flexitem">
+                      <ul class="choixReponses">
+                          <li class="choix">
+                            <input id="Q2A" type="radio" class="input" name="Q2" value="Q2A">
+                            <label class="label" for="Q2A"><span>Zelda, Sheik, Impa</span></label>
+                          </li>
+                          <li class="choix">
+                            <input id="Q2B" type="radio" class="input" name="Q2" value="Q2B">
+                            <label class="label" for="Q2B"><span>Zelda, Link, Ganon</span></label>
+                          </li>
+                          <li class="choix">
+                            <input id="Q2C" type="radio" class="input" name="Q2" value="Q2C">
+                            <label class="label" for="Q2C"><span>Saria, Ruto, Nabooru</span></label>
+                          </li>
+                          <li class="choix">
+                            <input id="Q2D" type="radio" class="input" name="Q2" value="Q2D">
+                            <label class="label" for="Q2D"><span>Din, Nayru, Farore</span></label>
+                          </li>
+                        </ul>
+                  </div>
+              </div>
           </fieldset>
             <div class="reponse">
                 <p class="retroaction"></p>
@@ -124,29 +135,35 @@
 
         <section id="Q3" class="q3">
           <fieldset class="q3__questions">
-            <legend class="question">Quel est le nom de ce personnage ?</legend>
-              <picture class="imgQuestion">
-                  <source srcset="assets/images/img_q3_w196.png 1x, assets/images/img_q1_w392.png 2x">
-                  <img src="assets/images/img_q3_w392.png" alt="Créature de City in the Sky">
-              </picture>
-            <ul class="choixReponses">
-              <li class="choix">
-                <input id="Q3A" type="radio" class="input" name="Q3" value="Q3A">
-                <label class="label" for="Q3A"><span>Ooccoo</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q3B" type="radio" class="input" name="Q3" value="Q3B">
-                <label class="label" for="Q3B"><span>Cucco</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q3C" type="radio" class="input" name="Q3" value="Q3C">
-                <label class="label" for="Q3C"><span>Oocca</span></label>
-              </li>
-              <li class="choix">
-                <input id="Q3D" type="radio" class="input" name="Q3" value="Q3D">
-                <label class="label" for="Q3D"><span>Aucunes de ces réponses</span></label>
-              </li>
-            </ul>
+              <div class="flex">
+                  <div class="flexitem">
+                      <legend class="question">Quel est le nom de ce personnage ?</legend>
+                      <picture class="imgQuestion">
+                          <source srcset="assets/images/img_q3_w196.png 1x, assets/images/img_q1_w392.png 2x">
+                          <img src="assets/images/img_q3_w392.png" alt="Créature de City in the Sky">
+                      </picture>
+                  </div>
+                  <div class="flexitem">
+                    <ul class="choixReponses">
+                      <li class="choix">
+                        <input id="Q3A" type="radio" class="input" name="Q3" value="Q3A">
+                        <label class="label" for="Q3A"><span>Ooccoo</span></label>
+                      </li>
+                      <li class="choix">
+                        <input id="Q3B" type="radio" class="input" name="Q3" value="Q3B">
+                        <label class="label" for="Q3B"><span>Cucco</span></label>
+                      </li>
+                      <li class="choix">
+                        <input id="Q3C" type="radio" class="input" name="Q3" value="Q3C">
+                        <label class="label" for="Q3C"><span>Oocca</span></label>
+                      </li>
+                      <li class="choix">
+                        <input id="Q3D" type="radio" class="input" name="Q3" value="Q3D">
+                        <label class="label" for="Q3D"><span>Aucunes de ces réponses</span></label>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
           </fieldset>
             <div class="reponse">
                 <p class="retroaction"></p>

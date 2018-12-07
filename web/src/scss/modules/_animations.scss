@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/*!
+ * animate.css -http://daneden.me/animate
+ * Version - 3.7.0
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2018 Daniel Eden
+ * Animations are slightly modified from the original.
+ */
+
+@keyframes pulse {
+  0%, 86%, 92%, 100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  89%, 96% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+    transition: all 1.5s ease;
+  }
+  to {
+    opacity:1;
+  }
+}
+
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translate(100%,0);
+    transition: all 2s ease;
+  }
+
+  to {
+    opacity:1;
+    transform: translate(0, 0);
+  }
+}
+
+.pageAccueil{
+  .titre{
+    animation: fadeIn 2s;
+  }
+
+  .introduction{
+    opacity: 0;
+    animation: slideInRight 1s 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .btnSoumettre{
+    opacity:0;
+    animation: fadeIn 1.5s 2.5s, pulse 6.5s 9s infinite;
+    animation-fill-mode: forwards;
+  }
+}
+
