@@ -1,0 +1,200 @@
+/**** BIBLIOTHÈQUES (dans le dossier bower_components) ****/
+@import '../../node_modules/normalize-css/normalize';
+
+@import '../../node_modules/susy/sass/susy';
+@import '../../node_modules/susy/sass/plugins/svg-grid';
+
+/**** utilitaires ****/
+@import 'utilitaires/variables';
+@import 'utilitaires/mixins';
+
+
+/**** base (typo) ****/
+@import 'base/typo';
+
+/**** modules ****/
+@import 'modules/general';
+
+/***** MISE EN PAGE SUSY ******/
+@include border-box-sizing;
+
+@media(max-width: 850px){
+  $susy: (
+          'columns': susy-repeat(4),
+          'gutters': 0.20,
+          'spread': 'narrow',
+          'container-spread': 'wide',
+  );
+  .conteneur {
+    //min-width de 305 pour faire 320px avec les gutter
+    min-width: 305px;
+    padding: 0 gutter(4)/2;
+    background: susy-svg-grid((
+            'columns': susy-repeat(4),
+            'gutters': 0.20,
+            'spread': 'narrow',
+            'container-spread': 'wide',
+    )) no-repeat scroll;
+  }
+}
+@media(min-width: 851px){
+  $susy: (
+          'columns': susy-repeat(12),
+          'gutters': 0.16,
+          'spread': 'narrow',
+          'container-spread': 'narrow'
+  );
+  .conteneur {
+    max-width:1280px;
+    margin: 0 auto;
+    background: susy-svg-grid((
+            'columns': susy-repeat(12),
+            'gutters': 0.16,
+            'spread': 'narrow',
+            'container-spread': 'narrow'
+    )) no-repeat scroll;
+  }
+}
+
+
+/** Styles **/
+
+.header{
+  background-color: $noirFond;
+  height: 75px;
+}
+
+.pageQuiz{
+  font-family: $fonte;
+  text-align: center;
+
+  .indicateurQuestion,
+  .pointage{
+    font-family: $fonteTitre;
+    text-shadow: $ombre;
+    @include fontSize(14px);
+  }
+
+  fieldset{
+    border:none;
+    padding:0;
+    margin:0;
+  }
+
+  .question{
+    font-family: $fonteBold;
+    text-shadow: $ombre;
+
+    @include fontSize(18px);
+
+    @media(min-width: $mobile){
+      @include fontSize(26px);
+    }
+  }
+
+  .q1{
+    .imgQuestion{
+      img{
+        width: span(4 of 4);
+        @media(min-width: $tablettePortrait){
+          width:span(2 of 4);
+        }
+        @media(min-width: $tablettePaysage){
+          width:span(4 of 12);
+        }
+      }
+    }
+  }
+
+
+  .choixReponses{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    text-align: left;
+    padding:0;
+
+    .choix {
+      border: 2px solid $gris;
+      background-color: $blancFond;
+      margin-bottom: 0.5rem;
+      width: span(4 of 4);
+
+      @media(min-width:$tablettePortrait){
+        width:span(2 wider of 4);
+      }
+      @media(min-width: $tablettePaysage){
+        width:span(5 of 12);
+      }
+
+      &:hover{
+        box-shadow: $ombreHover;
+      }
+
+      .label{
+        display:inline-block;
+        width:100%;
+        padding: 20px 0;
+
+        span{
+          padding-left: span(1 of 4)+gutter();
+        }
+      }
+      .input{
+        @include visuallyhidden;
+      }
+    }
+  }
+
+  .reponse{
+    .flex{
+      display:block;
+      @include fontSize(16px);
+      text-align: center;
+
+      .explication{
+        text-align: left;
+      }
+
+      .imgReponse{
+        img{
+          width:span(2 of 4);
+        }
+      }
+
+      @media(min-width: $tablettePortrait){
+        display:flex;
+        justify-content: center;
+
+        .imgReponse{
+          width:span(1 of 4);
+          margin-right:gutter();
+        }
+
+        .explication{
+          display:inline-block;
+            width:span(2 of 4);
+        }
+      }
+    }
+
+  }
+
+}
+
+.footer{
+  text-align: center;
+  background-color: $noir;
+  color: #B2B2B2;
+  font-family: Cabin, Helvetica, sans-serif;
+  padding:0.25rem;
+  @include fontSize(12px);
+
+  .attributions{
+    display:block;
+    color: #B2B2B2;
+    font-family: Cabin, Helvetica, sans-serif;
+    @include fontSize(10px);
+  }
+}

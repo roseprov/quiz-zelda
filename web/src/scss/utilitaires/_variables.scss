@@ -1,0 +1,59 @@
+/**
+ * @author Rose Provencher
+ * ------------------
+ * TABLE DES MATIÈRES
+ * ------------------
+ *
+ * Polices de caractères
+ * Palette de couleurs
+ * Points de rupture
+ **/
+
+/** Polices de caractère **/
+
+@font-face {
+  font-family: 'cinzelDecorative';
+  src: url('../polices/CinzelDecorative-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'crimsonTextBold';
+  src: url('../polices/CrimsonText-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'crimsonText';
+  src: url('../polices/CrimsonText-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$fonte: crimsonText, serif;
+$fonteBold: crimsonTextBold, serif;
+$fonteTitre: cinzelDecorative, serif;
+
+
+/** Palette de couleurs **/
+$vert: #7CC66C;
+$gris: #686868;
+$rouge: #D32121;
+$noir: #000000;
+$blanc: #FFFFFF;
+
+$erreur: #C03E3E;
+
+$blancFond: rgba(255, 255, 255, 0.5);
+$noirFond: rgba(0, 0, 0, 0.7);
+$noirBox: rgba(0, 0, 0, 0.6);
+
+$ombreHover: 3px 3px 3px rgba(0,0,0,0.16);
+$ombre: 0 2px 3px rgba(0,0,0,0.3);
+//Pour utiliser -> box-shadow: $ombrePale;
+
+/** Points de rupture **/
+$mobile: 451px;
+$tablettePortrait: 601px;
+$tablettePaysage: 801px;
+$desktop: 1281px;

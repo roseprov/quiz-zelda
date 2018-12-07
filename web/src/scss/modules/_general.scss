@@ -1,0 +1,57 @@
+.titre{
+  font-family: $fonteTitre;
+  color:$blanc;
+  text-decoration: none;
+  text-shadow: $ombre;
+  @include fontSize(20px);
+
+  .zelda{
+    color:$rouge;
+    display:block;
+  }
+}
+
+
+.bouton{
+  display:block;
+
+  background-color: $noirFond;
+  border: 1px solid $blanc;
+
+  color: $blanc;
+  font-family: $fonteTitre;
+  text-decoration:none;
+  text-align: center;
+  padding:14px 0;
+  @include fontSize(16px);
+
+  width:span(4 of 4);
+
+  @media(min-width: $tablettePortrait){
+    width:span(2 of 4);
+  }
+  @media(min-width: $tablettePaysage){
+    width:span(3 of 12);
+  }
+
+  &:hover,
+  &:focus{
+    /*Ajouter animation*/
+  }
+
+}
+
+
+.imgQuestion{
+  img{
+    width: span(2 of 4);
+
+    @media(min-width: $tablettePaysage){
+      width:span(4 of 12);
+    }
+  }
+}
+
+img{
+  width:100%;
+}

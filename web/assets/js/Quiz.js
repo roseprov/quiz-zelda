@@ -178,6 +178,7 @@ define(["require", "exports"], function (require, exports) {
                 this.afficherRetroactionReponse(element, 3, imgContenu);
             }
         }
+        //TODO: Optimiser cette methode, la répartir en plusieurs méthodes
         /**
          * Affichage de la réponse et de ses explications
          * @param element Élément écouté
@@ -185,32 +186,44 @@ define(["require", "exports"], function (require, exports) {
          * @param imgContenu Balises de l'image réponse
          */
         afficherRetroactionReponse(element, noQuestion, imgContenu) {
-            console.log('in');
-            let retroaction = 'positive';
             const bonneReponse = this.objJSONQuiz['bonnesReponses'][noQuestion - 1];
-            const explications = element.closest('section')
-                .querySelector('.q' + noQuestion + '__reponse');
+            // const explications:HTMLElement = element.closest('section').querySelector('.q'+noQuestion+'__reponse');
+            const explications = element.closest('section').querySelector('.reponse');
+            let couleurRetroaction = "#7CC66C";
+            let retroaction = 'positive';
+            let rupees = "";
             // Création du bouton
             this.creerBouton(noQuestion, explications);
+            // const explications = document.createElement('div');
+            // explications.className = "reponse";
             //Surligner la bonne réponse
             element.closest('.choixReponses')
                 .querySelector('[value=' + bonneReponse + ']')
                 .closest('li')
-                .style = 'border: 1px solid green';
+                .style = 'border: 2px solid #7CC66C';
             //Vérifier la rétroaction de la question
             if (element.value != bonneReponse) {
                 retroaction = 'negative';
+                couleurRetroaction = '#C03E3E';
+                element
+                    .closest('.choix')
+                    .style.border = '2px solid #C03E3E';
             }
             else {
                 this.questionsReussi += 1;
-                this.pointage += this.objJSONQuiz['pointsReponse'][noQuestion - 1];
+                rupees = this.objJSONQuiz['pointsReponse'][noQuestion - 1];
+                this.pointage += parseInt(rupees);
             }
             //Insérer les informations dans les balises appropriées
             explications
                 .querySelector('.retroaction')
                 .innerHTML = this.objJSONQuiz['retroactions'][retroaction];
+            // + ' + ' + rupees;
             explications
-                .querySelector('.img_rep')
+                .querySelector('.retroaction')
+                .style.color = couleurRetroaction;
+            explications
+                .querySelector('.imgReponse')
                 .innerHTML = imgContenu;
             explications
                 .querySelector('.explication')
@@ -226,7 +239,7 @@ define(["require", "exports"], function (require, exports) {
             button.type = 'button';
             //Si c'est la dernière question
             if (noQuestion == 3) {
-                button.className = 'btn_soumettre';
+                button.classList.add('btn_soumettre', 'bouton');
                 button.innerHTML = 'Soumettre les résultats';
                 //console.log('in');
                 explications
@@ -234,7 +247,7 @@ define(["require", "exports"], function (require, exports) {
                     .addEventListener('click', this.cliquerBoutonSoumettreMesChoix.bind(this));
             }
             else {
-                button.className = 'btn_next';
+                button.classList.add('btn_next', 'bouton');
                 button.innerHTML = 'Prochaine question';
                 explications
                     .appendChild(button)

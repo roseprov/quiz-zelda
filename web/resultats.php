@@ -28,13 +28,13 @@ if (isset($_GET['validerQuiz'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Resultats - Quiz The Legend of Zelda</title>
-    <!--<link rel="stylesheet" href="assets/css/styles.css">-->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 <header role="banner">
     <a href="index.html">
         <span class="icone"></span>
-        <p class="title">Le quiz « légendaire » de la série <span>The Legend of Zelda</span></p>
+        <p class="title">Le quiz « légendaire » de la série <span class="zelda">The Legend of Zelda</span></p>
     </a>
 </header>
 <main>
@@ -48,6 +48,11 @@ if (isset($_GET['validerQuiz'])) {
 
     <a href="quiz.html" class="bouton">Recommencer le quiz</a>
 </main>
+
+<footer class="footer" role="contentinfo">
+    <small>Rose Provencher; Toutes les images appartiennent à Nintendo, 2018</small>
+    <a href="attributions.html">Voir les sources des images et les attributions</a>
+</footer>
 
 </body>
 </html>
