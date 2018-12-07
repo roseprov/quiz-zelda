@@ -21,7 +21,7 @@ self.addEventListener('install', function(event) {
                 './',
                 './index.html',
                 './quiz.html',
-                //'style.css',
+                'assets/css/style.css',
                 'logging.js',
                 'assets/js/main.js',
                 'assets/js/Quiz.js',
