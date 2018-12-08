@@ -30,12 +30,12 @@
     //min-width de 305 pour faire 320px avec les gutter
     min-width: 305px;
     padding: 0 gutter(4)/2;
-    background: susy-svg-grid((
-            'columns': susy-repeat(4),
-            'gutters': 0.20,
-            'spread': 'narrow',
-            'container-spread': 'wide',
-    )) no-repeat scroll;
+    //background: susy-svg-grid((
+    //        'columns': susy-repeat(4),
+    //        'gutters': 0.20,
+    //        'spread': 'narrow',
+    //        'container-spread': 'wide',
+    //)) no-repeat scroll;
   }
 }
 @media(min-width: 851px){
@@ -48,12 +48,12 @@
   .conteneur {
     max-width:1280px;
     margin: 0 auto;
-    background: susy-svg-grid((
-            'columns': susy-repeat(12),
-            'gutters': 0.16,
-            'spread': 'narrow',
-            'container-spread': 'narrow'
-    )) no-repeat scroll;
+    //background: susy-svg-grid((
+    //        'columns': susy-repeat(12),
+    //        'gutters': 0.16,
+    //        'spread': 'narrow',
+    //        'container-spread': 'narrow'
+    //)) no-repeat scroll;
   }
 }
 
