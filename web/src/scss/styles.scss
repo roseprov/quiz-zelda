@@ -27,15 +27,16 @@
           'container-spread': 'wide',
   );
   .conteneur {
+    //min-height: 100%;
     //min-width de 305 pour faire 320px avec les gutter
     min-width: 305px;
     padding: 0 gutter(4)/2;
-    //background: susy-svg-grid((
-    //        'columns': susy-repeat(4),
-    //        'gutters': 0.20,
-    //        'spread': 'narrow',
-    //        'container-spread': 'wide',
-    //)) no-repeat scroll;
+    background: susy-svg-grid((
+            'columns': susy-repeat(4),
+            'gutters': 0.20,
+            'spread': 'narrow',
+            'container-spread': 'wide',
+    )) no-repeat scroll;
   }
 }
 @media(min-width: 851px){
@@ -46,22 +47,30 @@
           'container-spread': 'narrow'
   );
   .conteneur {
+    //min-height: 100%;
     max-width:1280px;
     margin: 0 auto;
-    //background: susy-svg-grid((
-    //        'columns': susy-repeat(12),
-    //        'gutters': 0.16,
-    //        'spread': 'narrow',
-    //        'container-spread': 'narrow'
-    //)) no-repeat scroll;
+    background: susy-svg-grid((
+            'columns': susy-repeat(12),
+            'gutters': 0.16,
+            'spread': 'narrow',
+            'container-spread': 'narrow'
+    )) no-repeat scroll;
   }
 }
 
 
 /** Styles **/
 
+html {
+  //height: 100%;
+}
+
 body{
+  //min-height: 100%;
+
   overflow-x: hidden;
+  //position:relative;
 }
 
 .header{
@@ -74,6 +83,9 @@ body{
 }
 
 .pageAccueil {
+  //min-height: 100%;
+  //height:100%;
+  overflow-x:hidden;
   font-family: $fonteBold;
   color: white;
 
@@ -92,6 +104,8 @@ body{
 }
 
   .containerAccueil {
+    //min-height:100%;
+    overflow-x: hidden;
     display:flex;
     flex-direction: column;
     
@@ -103,7 +117,7 @@ body{
     }
 
     .titre {
-      margin: 2rem 0 0 0;
+      margin: 3rem 0 0 0;
       color: $noir;
       @include fontSize(26px);
 
@@ -114,11 +128,11 @@ body{
       @media(min-width: $tablettePaysage) {
         @include fontSize(36px);
         width: span(6 of 12);
-        margin-right:span(1 wide of 12);
+        //margin-right:span(1 wide of 12);
       }
-      @media(min-width: $desktop){
-        width: span(5 of 12);
-      }
+      //@media(min-width: $desktop){
+      //  width: span(5 of 12);
+      //}
 
     }
 
@@ -148,15 +162,15 @@ body{
       @media(min-width: $tablettePaysage){
         padding-right: span(1 of 12);
         margin:  5rem 0;
-        width:span(7 of 12);
+        width:span(6 of 12);
       }
 
-      @media(min-width: $desktop){
-        width:span(5 of 12);
-        padding-right:0;
-        margin-right: span(1 wide of 12);
-
-      }
+      //@media(min-width: $desktop){
+      //  width:span(5 of 12);
+      //  padding-right:0;
+      //  margin-right: span(1 wide of 12);
+      //
+      //}
     }
     .btnSoumettre{
       @media(min-width: $tablettePaysage){
@@ -166,7 +180,7 @@ body{
   }
 
 .bg_quiz{
-  background:url('../images/bg_quiz.jpg') no-repeat;
+  background:url('../images/bg_quiz.jpg') no-repeat center center fixed;
   background-size:cover;
 }
 .pageQuiz{
@@ -303,6 +317,7 @@ body{
 
     @media(min-width: $tablettePaysage){
       width:span(5 of 12);
+      margin-left: span(6 wide of 12);
     }
 
     .retroaction{
@@ -354,7 +369,9 @@ body{
       }
     }
 
-    .btn_next{
+    .btn_next,
+    .btn_soumettre{
+      margin-top:1.5rem;
       @media(min-width: $tablettePortrait){
         margin-left:span(2 wide of 4);
       }
@@ -400,9 +417,9 @@ body{
 }
 
 
-.pageAccueil{
-  .footer{
-    position: fixed;
-    bottom:0;
-  }
-}
+//.pageAccueil{
+//  .footer{
+//    position: absolute;
+//    bottom:0;
+//  }
+//}
