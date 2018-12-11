@@ -63,13 +63,13 @@ define(["require", "exports"], function (require, exports) {
          * Définit l'état initial de l'App en version "riche"
          */
         initialiser() {
-            // Cacher le bouton de soumission du formulaire
-            this.btnValiderQuiz.style.display = 'none';
             // Cacher toutes les questions
             this.Q2.style.display = 'none';
             this.Q3.style.display = 'none';
             // Afficher première question
             this.afficherQuestion(this.questionActive);
+            // Cacher le bouton de soumission du formulaire
+            this.btnValiderQuiz.style.display = 'none';
         }
         /**
          * Affiche une question
@@ -108,7 +108,9 @@ define(["require", "exports"], function (require, exports) {
          * Affichage de la section résultats
          */
         afficherResultatsFinaux() {
-            document.querySelector('.resultats')
+            console.log('in');
+            console.log(document.querySelector('.sectionResultats'));
+            document.querySelector('.sectionResultats')
                 .innerHTML =
                 '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
                     '<div class="resultats__statistiques">' +

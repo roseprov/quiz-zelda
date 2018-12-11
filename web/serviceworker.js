@@ -23,7 +23,6 @@ self.addEventListener('install', function(event) {
                 './quiz.html',
                 'assets/css/styles.css',
                 'logging.js',
-                'node_modules/requirejs/require.js',
                 'assets/js/main.js',
                 'assets/js/Quiz.js',
                 'assets/polices/CinzelDecorative-Bold.ttf',

@@ -37,7 +37,7 @@ if (isset($_GET['validerQuiz'])) {
         <p class="title">Le quiz « légendaire » de la série <span class="zelda">The Legend of Zelda</span></p>
     </a>
 </header>
-<main>
+<main class="pageResultats">
     <h1 hidden>Résultats</h1>
     <p>Vous avez terminé le quiz !</p>
 

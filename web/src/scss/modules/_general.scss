@@ -39,21 +39,11 @@
 
   &:hover,
   &:focus{
+    @include hover;
     outline:none;
-    box-shadow: 0 0 0.6rem $blanc;
+    box-shadow: 0 0 0.3rem $blanc;
   }
 
-}
-
-
-.imgQuestion{
-  img{
-    width: span(2 of 4);
-
-    @media(min-width: $tablettePaysage){
-      width:span(4 of 12);
-    }
-  }
 }
 
 img{

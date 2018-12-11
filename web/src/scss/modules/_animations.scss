@@ -45,6 +45,14 @@
   }
 }
 
+@mixin hover {
+
+  transition:transform 200ms ease-in;
+  &:hover{
+    transform: scale(1.02);
+  }
+}
+
 .pageAccueil{
   overflow-x: hidden;
   .titre{
@@ -64,4 +72,20 @@
     animation-fill-mode: forwards;
   }
 }
+
+.pageQuiz{
+  .question,
+  .instructionQuestion{
+    animation: fadeIn 2s;
+  }
+
+  .choix{
+    @include hover;
+    //opacity: 0;
+    //animation: slideInRight 1s 1s;
+    //animation-timing-function: ease-in-out;
+    //animation-fill-mode: forwards;
+  }
+}
+
 

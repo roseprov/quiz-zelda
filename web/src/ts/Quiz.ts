@@ -109,7 +109,9 @@ export class Quiz {
      * Affichage de la section résultats
      */
     private afficherResultatsFinaux():void {
-        document.querySelector('.resultats')
+        console.log('in');
+        console.log(document.querySelector('.sectionResultats'));
+        document.querySelector('.sectionResultats')
             .innerHTML =
             '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
             '<div class="resultats__statistiques">' +
@@ -236,7 +238,7 @@ export class Quiz {
         explications
             .querySelector('.retroaction')
             .innerHTML = this.objJSONQuiz['retroactions'][retroaction];
-            // + ' + ' + rupees;
+        // + ' + ' + rupees;
         explications
             .querySelector('.retroaction')
             .style.color = couleurRetroaction;

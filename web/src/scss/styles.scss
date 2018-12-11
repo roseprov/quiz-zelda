@@ -27,7 +27,8 @@
           'container-spread': 'wide',
   );
   .conteneur {
-    //min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
     //min-width de 305 pour faire 320px avec les gutter
     min-width: 305px;
     padding: 0 gutter(4)/2;
@@ -47,7 +48,9 @@
           'container-spread': 'narrow'
   );
   .conteneur {
-    //min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
     max-width:1280px;
     margin: 0 auto;
     background: susy-svg-grid((
@@ -64,14 +67,13 @@
 
 html {
   //height: 100%;
+  overflow-x: hidden;
 }
 
 body{
-  //min-height: 100%;
-
   overflow-x: hidden;
-  //position:relative;
 }
+
 
 .header{
   background-color: $noirFond;
@@ -86,6 +88,7 @@ body{
   //min-height: 100%;
   //height:100%;
   overflow-x:hidden;
+  overflow-y: hidden;
   font-family: $fonteBold;
   color: white;
 
@@ -106,6 +109,7 @@ body{
   .containerAccueil {
     //min-height:100%;
     overflow-x: hidden;
+    overflow-y: hidden;
     display:flex;
     flex-direction: column;
     
@@ -238,7 +242,7 @@ body{
     }
   }
 
-  .question{
+  .titreQuestion{
     font-family: $fonteBold;
     text-shadow: $ombre;
 
@@ -252,7 +256,30 @@ body{
     }
   }
 
-  .q1{
+  .imgQuestion{
+    img{
+      width: span(2 of 4);
+
+      @media(min-width: $tablettePaysage){
+        width:span(4 of 5);
+      }
+    }
+  }
+
+  .question3{
+    .imgQuestion{
+      img{
+        @media(min-width: $tablettePortrait){
+          width:span(1.2 of 4);
+        }
+        @media(min-width: $tablettePaysage){
+          width:span(2 of 5);
+        }
+      }
+    }
+  }
+
+  .question1{
     .imgQuestion{
       img{
         border:solid 2px $gris;
@@ -293,10 +320,10 @@ body{
       @media(min-width: $tablettePaysage){
         width:span(5 of 5);
       }
-
-      &:hover{
-        box-shadow: $ombreHover;
-      }
+      @include hover();
+      //&:hover{
+      //  box-shadow: $ombreHover;
+      //}
 
       .label{
         display:inline-block;
@@ -312,6 +339,7 @@ body{
       }
     }
   }
+
 
   .reponse{
 
@@ -354,7 +382,7 @@ body{
 
       .imgReponse{
         img{
-          width:span(2 of 4);
+          width:span(1.5 of 4);
           @media(min-width:$tablettePortrait){
             width:100%;
           }
@@ -381,7 +409,14 @@ body{
         margin-left:span(2 wide of 5);
       }
     }
+
   }
+
+}
+
+.pageResultats{
+  overflow-x: hidden;
+  overflow-y: hidden;
 
 }
 

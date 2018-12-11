@@ -42,16 +42,16 @@
 </header>
 
 <main class="pageQuiz">
-    <div class="conteneur">
+    <div class="conteneur conteneurQuiz">
     <p class="zonePointage"><span class="icone-pouch"></span> <span class="pointage">0</span></p>
     <p class="indicateurQuestion"></p>
 
     <form action="resultats.php" novalidate>
-        <section id="Q1" class="q1">
-          <fieldset class="q1__questions">
+        <section id="Q1" class="question1">
+          <fieldset class="q1">
               <div class="flex">
-              <div class="flexitem">
-                <legend class="question">Quel est le nom de cette mélodie ?</legend>
+              <div class="flexitem question">
+                <legend class="titreQuestion">Quel est le nom de cette mélodie ?</legend>
                 <picture class="imgQuestion">
                     <source srcset="assets/images/img_q1_w417.jpg 1x, assets/images/img_q1_w680.jpg 2x">
                     <img src="assets/images/img_q1_w417.jpg" alt="Mélodie dans Ocarina of Time">
@@ -88,11 +88,11 @@
         </p>
         </section>
 
-        <section id="Q2" class="q2">
-          <fieldset class="q2__questions">
+        <section id="Q2" class="question2">
+          <fieldset class="q2">
               <div class="flex">
-                  <div class="flexitem">
-                      <legend class="question">Quels sont les noms des trois divinités qui ont créé le Triforce ?</legend>
+                  <div class="flexitem question">
+                      <legend class="titreQuestion">Quels sont les noms des trois divinités qui ont créé le Triforce ?</legend>
                       <picture class="imgQuestion">
                           <source media="(min-width:601px)" srcset="assets/images/img_q2_w320.png 1x, assets/images/img_q1_w834.png 2x">
                           <source media="(max-width:600px)" srcset="assets/images/img_q2_w160.png 1x, assets/images/img_q1_w320.png 2x">
@@ -133,11 +133,11 @@
             </p>
         </section>
 
-        <section id="Q3" class="q3">
-          <fieldset class="q3__questions">
+        <section id="Q3" class="question3">
+          <fieldset class="q3">
               <div class="flex">
-                  <div class="flexitem">
-                      <legend class="question">Quel est le nom de ce personnage ?</legend>
+                  <div class="flexitem question">
+                      <legend class="titreQuestion">Quel est le nom de ce personnage ?</legend>
                       <picture class="imgQuestion">
                           <source srcset="assets/images/img_q3_w196.png 1x, assets/images/img_q1_w392.png 2x">
                           <img src="assets/images/img_q3_w392.png" alt="Créature de City in the Sky">
@@ -178,9 +178,8 @@
             <button id='validerQuiz' name='validerQuiz' type="submit">Valider mes choix</button>
         </section>
         </form>
-
-    <section class="resultats">
-    </section>
+        <section class="sectionResultats">
+        </section>
     </div>
 </main>
 
