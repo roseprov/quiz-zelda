@@ -76,17 +76,67 @@ body{
 
 
 .header{
+  display:inline-block;
   background-color: $noirFond;
-  height: 75px;
+  //height: 7.5rem;
+  width:100%;
+
+  .titre{
+    display:flex;
+    justify-content: space-between;
+    @media(min-width: $mobile){
+      justify-content: flex-start;
+    }
+    @media(min-width:$tablettePaysage){
+      display:flex;
+      justify-content: space-between;
+      //margin-left:span(1 wide of 12);
+      width:span(5 of 12);
+    }
+    .icones{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      width:span(1 of 4);
+      @media(min-width: $mobile){
+        width:auto;
+      }
+      @media(min-width: $tablettePaysage){
+        justify-content: flex-end;
+        width:span(1 of 5);
+      }
+
+      .icone-logo{
+        display:inline-block;
+        width:5.4rem;
+        height:4.6rem;
+        background:url('../images/icones/triforce_ico.svg') no-repeat;
+        background-size:contain;
+      }
+    }
+
+    .title{
+      display:inline-block;
+      @include fontSize(16px);
+      width:span(3 of 4);
+      margin:0.6rem 0;
+
+      @media(min-width: $mobile){
+        width:auto;
+        @include fontSize(20px);
+        margin-left:1rem;
+      }
+      @media(min-width: $tablettePaysage){
+        width:span(4 of 5);
+        margin:1rem 0;
+      }
+    }
+  }
 }
 
-.title{
-  margin:0;
-}
+
 
 .pageAccueil {
-  //min-height: 100%;
-  //height:100%;
   overflow-x:hidden;
   overflow-y: hidden;
   font-family: $fonteBold;
@@ -132,11 +182,7 @@ body{
       @media(min-width: $tablettePaysage) {
         @include fontSize(36px);
         width: span(6 of 12);
-        //margin-right:span(1 wide of 12);
       }
-      //@media(min-width: $desktop){
-      //  width: span(5 of 12);
-      //}
 
     }
 
@@ -169,12 +215,6 @@ body{
         width:span(6 of 12);
       }
 
-      //@media(min-width: $desktop){
-      //  width:span(5 of 12);
-      //  padding-right:0;
-      //  margin-right: span(1 wide of 12);
-      //
-      //}
     }
     .btnSoumettre{
       @media(min-width: $tablettePaysage){
@@ -209,7 +249,8 @@ body{
 
   .zonePointage{
     text-align: right;
-    margin:auto 1rem;
+    margin: 1rem;
+
   }
 
   .instructionQuestion{
@@ -220,7 +261,10 @@ body{
   .icone-pouch{
     display:inline-block;
     background: url('../images/icones/pouch_ico.svg') no-repeat;
-    width:2.5rem;
+    background-size: contain;
+    width:2rem;
+    height:2rem;
+    vertical-align: middle;
   }
 
   fieldset{
@@ -309,7 +353,7 @@ body{
     }
 
     .choix {
-      border: 2px solid $gris;
+      position:relative;
       background-color: $blancFond;
       margin-bottom: 0.5rem;
       width: span(4 of 4);
@@ -321,11 +365,33 @@ body{
         width:span(5 of 5);
       }
       @include hover();
-      //&:hover{
-      //  box-shadow: $ombreHover;
-      //}
+
+      .icones{
+        display:inline-block;
+        position:absolute;
+        width:span(1 of 4);
+        margin:auto;
+        padding-left:gutter();
+        top:50%;
+        transform:translateY(-50%);
+
+        .icone-rupee{
+          background:url('../images/icones/rupee_ico.svg') no-repeat;
+          background-size: contain;
+          width:1.4rem;
+          height:2.4rem;
+          display:inline-block;
+          vertical-align: middle;
+          margin-right: -0.3rem;
+        }
+      }
+
+      .input:checked + .label{
+        border: 2px solid $blanc;
+      }
 
       .label{
+        border: 2px solid $gris;
         display:inline-block;
         width:100%;
         padding: 20px 0;

@@ -212,14 +212,12 @@ export class Quiz {
         // Création du bouton
         this.creerBouton(noQuestion, explications);
 
-        // const explications = document.createElement('div');
-        // explications.className = "reponse";
-
         //Surligner la bonne réponse
         element.closest('.choixReponses')
             .querySelector('[value=' + bonneReponse + ']')
-            .closest('li')
-            .style = 'border: 2px solid #7CC66C';
+            .closest('.choix')
+            .querySelector('.label')
+            .style = 'border: 2px solid #7CC66C;';
 
         //Vérifier la rétroaction de la question
         if(element.value != bonneReponse){
@@ -227,7 +225,8 @@ export class Quiz {
             couleurRetroaction = '#C03E3E';
             element
                 .closest('.choix')
-                .style.border = '2px solid #C03E3E';
+                .querySelector('.label')
+                .style = 'border:2px solid #C03E3E;';
         } else {
             this.questionsReussi += 1;
             rupees = this.objJSONQuiz['pointsReponse'][noQuestion-1];

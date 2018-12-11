@@ -196,20 +196,25 @@ define(["require", "exports"], function (require, exports) {
             let rupees = "";
             // Création du bouton
             this.creerBouton(noQuestion, explications);
-            // const explications = document.createElement('div');
-            // explications.className = "reponse";
             //Surligner la bonne réponse
             element.closest('.choixReponses')
                 .querySelector('[value=' + bonneReponse + ']')
-                .closest('li')
-                .style = 'border: 2px solid #7CC66C';
+                .closest('.choix')
+                .querySelector('.label')
+                .style = 'border: 2px solid #7CC66C;';
+            console.log(element.closest('.choixReponses')
+                .querySelector('[value=' + bonneReponse + ']')
+                .closest('.choix')
+                .querySelector('.label')
+                .style);
             //Vérifier la rétroaction de la question
             if (element.value != bonneReponse) {
                 retroaction = 'negative';
                 couleurRetroaction = '#C03E3E';
                 element
                     .closest('.choix')
-                    .style.border = '2px solid #C03E3E';
+                    .querySelector('.label')
+                    .style = 'border:2px solid #C03E3E;';
             }
             else {
                 this.questionsReussi += 1;

@@ -35,7 +35,10 @@
 <header role="banner" class="header">
     <div class="conteneur">
         <a href="index.html" class="titre">
-            <span class="icone-logo"></span>
+            <span class="icones">
+                <span class="icone-logo"></span>
+            </span>
+
             <p class="title">Le quiz légendaire de la série <span class="zelda">The Legend of Zelda</span></p>
         </a>
     </div>
@@ -62,15 +65,34 @@
                   <ul class="choixReponses">
                       <li class="choix">
                           <input id="Q1A" type="radio" class="input" name="Q1" value="Q1A">
-                          <label class="label" for="Q1A"><span>La berceuse de Zelda</span></label>
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                          </span>
+                          <label class="label" for="Q1A">
+
+                              <span>La berceuse de Zelda</span>
+                          </label>
                       </li>
                       <li class="choix">
                           <input id="Q1B" type="radio" class="input" name="Q1" value="Q1B">
-                          <label class="label" for="Q1B"><span>Le chant de Saria</span></label>
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                          </span>
+                          <label class="label" for="Q1B">
+                              <span>Le chant de Saria</span>
+                          </label>
                       </li>
                       <li class="choix">
                           <input id="Q1C" type="radio" class="input" name="Q1" value="Q1C">
-                          <label class="label" for="Q1C"><span>Le chant du temps</span></label>
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                          </span>
+                          <label class="label" for="Q1C">
+                              <span>Le chant du temps</span>
+                          </label>
                       </li>
                   </ul>
               </div>
@@ -103,18 +125,36 @@
                       <ul class="choixReponses">
                           <li class="choix">
                             <input id="Q2A" type="radio" class="input" name="Q2" value="Q2A">
+                              <span class="icones">
+                              <span class="icone-rupee"></span>
+                            </span>
                             <label class="label" for="Q2A"><span>Zelda, Sheik, Impa</span></label>
                           </li>
                           <li class="choix">
                             <input id="Q2B" type="radio" class="input" name="Q2" value="Q2B">
+                            <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                            </span>
                             <label class="label" for="Q2B"><span>Zelda, Link, Ganon</span></label>
                           </li>
                           <li class="choix">
                             <input id="Q2C" type="radio" class="input" name="Q2" value="Q2C">
+                              <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                            </span>
                             <label class="label" for="Q2C"><span>Saria, Ruto, Nabooru</span></label>
                           </li>
                           <li class="choix">
                             <input id="Q2D" type="radio" class="input" name="Q2" value="Q2D">
+                              <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                            </span>
                             <label class="label" for="Q2D"><span>Din, Nayru, Farore</span></label>
                           </li>
                         </ul>
@@ -147,18 +187,36 @@
                     <ul class="choixReponses">
                       <li class="choix">
                         <input id="Q3A" type="radio" class="input" name="Q3" value="Q3A">
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                          </span>
                         <label class="label" for="Q3A"><span>Ooccoo</span></label>
                       </li>
                       <li class="choix">
                         <input id="Q3B" type="radio" class="input" name="Q3" value="Q3B">
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                          </span>
                         <label class="label" for="Q3B"><span>Cucco</span></label>
                       </li>
                       <li class="choix">
                         <input id="Q3C" type="radio" class="input" name="Q3" value="Q3C">
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                          </span>
                         <label class="label" for="Q3C"><span>Oocca</span></label>
                       </li>
                       <li class="choix">
                         <input id="Q3D" type="radio" class="input" name="Q3" value="Q3D">
+                          <span class="icones">
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                              <span class="icone-rupee"></span>
+                          </span>
                         <label class="label" for="Q3D"><span>Aucunes de ces réponses</span></label>
                       </li>
                     </ul>
@@ -175,7 +233,7 @@
             </div>
             <p class="erreur" aria-live="assertive" aria-atomic="true">
             </p>
-            <button id='validerQuiz' name='validerQuiz' type="submit">Valider mes choix</button>
+            <button id='validerQuiz' class="bouton" name='validerQuiz' type="submit">Valider mes choix</button>
         </section>
         </form>
         <section class="sectionResultats">
