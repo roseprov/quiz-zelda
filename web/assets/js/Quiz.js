@@ -202,11 +202,6 @@ define(["require", "exports"], function (require, exports) {
                 .closest('.choix')
                 .querySelector('.label')
                 .style = 'border: 2px solid #7CC66C;';
-            console.log(element.closest('.choixReponses')
-                .querySelector('[value=' + bonneReponse + ']')
-                .closest('.choix')
-                .querySelector('.label')
-                .style);
             //Vérifier la rétroaction de la question
             if (element.value != bonneReponse) {
                 retroaction = 'negative';
@@ -225,6 +220,9 @@ define(["require", "exports"], function (require, exports) {
             explications
                 .querySelector('.retroaction')
                 .innerHTML = this.objJSONQuiz['retroactions'][retroaction];
+            explications
+                .querySelector('.retroaction')
+                .style = 'text-shadow: 0 1px 3px rgba(0,0,0,0.3);';
             // + ' + ' + rupees;
             explications
                 .querySelector('.retroaction')

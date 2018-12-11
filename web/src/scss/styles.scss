@@ -65,15 +65,7 @@
 
 /** Styles **/
 
-html {
-  //height: 100%;
-  overflow-x: hidden;
-}
-
-body{
-  overflow-x: hidden;
-}
-
+/** ENTÊTE **/
 
 .header{
   display:inline-block;
@@ -81,6 +73,7 @@ body{
   //height: 7.5rem;
   width:100%;
 
+  /* Conteneur titre */
   .titre{
     display:flex;
     justify-content: space-between;
@@ -91,8 +84,10 @@ body{
       display:flex;
       justify-content: space-between;
       //margin-left:span(1 wide of 12);
-      width:span(5 of 12);
+      width:span(6 of 12);
     }
+
+    /* Icone Triforce */
     .icones{
       display:flex;
       justify-content: center;
@@ -103,7 +98,7 @@ body{
       }
       @media(min-width: $tablettePaysage){
         justify-content: flex-end;
-        width:span(1 of 5);
+        width:span(1 of 6);
       }
 
       .icone-logo{
@@ -115,6 +110,7 @@ body{
       }
     }
 
+    /* The Legend of Zelda */
     .title{
       display:inline-block;
       @include fontSize(16px);
@@ -127,7 +123,7 @@ body{
         margin-left:1rem;
       }
       @media(min-width: $tablettePaysage){
-        width:span(4 of 5);
+        width:span(5 of 6);
         margin:1rem 0;
       }
     }
@@ -135,7 +131,7 @@ body{
 }
 
 
-
+/** PAGE ACCUEIL **/
 .pageAccueil {
   overflow-x:hidden;
   overflow-y: hidden;
@@ -154,6 +150,14 @@ body{
     background: url('../images/bg_accueil_w2560.jpg') no-repeat center center fixed;
     background-size: cover;
   }
+}
+
+.main-container{
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 5rem;
 }
 
   .containerAccueil {
@@ -191,8 +195,8 @@ body{
       line-height: 26px;
       background-color: $noir60;
 
-      padding: 1rem 2rem;
-      margin: 5rem -2rem;
+      padding: 1rem;
+      margin: 5rem 0;
 
       @include fontSize(16px);
 
@@ -223,6 +227,9 @@ body{
     }
   }
 
+
+/** PAGE QUIZ **/
+
 .bg_quiz{
   background:url('../images/bg_quiz.jpg') no-repeat center center fixed;
   background-size:cover;
@@ -244,6 +251,7 @@ body{
   }
 
   .indicateurQuestion{
+    margin-bottom: 4rem;
     text-align:center;
   }
 
@@ -254,7 +262,7 @@ body{
   }
 
   .instructionQuestion{
-    margin:0;
+    margin:3rem 0 0 0;
     text-shadow: $ombre;
   }
 
@@ -274,19 +282,23 @@ body{
 
     .flex{
       @media(min-width: $tablettePaysage){
+        width:span(10 of 12);
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-around;
+        margin-left: span(1 wide of 12);
 
         .flexitem{
-          width:span(5 of 12);
+          width:span(5 of 10);
+
         }
       }
     }
   }
 
   .titreQuestion{
+    margin-bottom: 2rem;
     font-family: $fonteBold;
     text-shadow: $ombre;
 
@@ -296,7 +308,7 @@ body{
       @include fontSize(26px);
     }
     @media(min-width: $tablettePaysage){
-      width:span(4 of 5);
+      width:span(5 of 5);
     }
   }
 
@@ -312,6 +324,10 @@ body{
 
   .question3{
     .imgQuestion{
+      @media(min-width: $tablettePaysage){
+        margin-left:span(1 wide of 5);
+      }
+
       img{
         @media(min-width: $tablettePortrait){
           width:span(1.2 of 4);
@@ -391,6 +407,7 @@ body{
       }
 
       .label{
+        cursor: pointer;
         border: 2px solid $gris;
         display:inline-block;
         width:100%;
@@ -487,6 +504,8 @@ body{
 }
 
 .footer{
+  position:absolute;
+  bottom:0;
   display:block;
   width:100%;
 

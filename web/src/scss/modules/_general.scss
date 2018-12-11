@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  position:relative;
+}
+
 .titre{
   margin:0;
   font-family: $fonteTitre;
@@ -25,6 +30,8 @@
   text-align: center;
   padding:14px 0;
   @include fontSize(16px);
+
+  cursor:pointer;
 
   width:span(4 of 4);
 
