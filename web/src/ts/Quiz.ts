@@ -92,7 +92,7 @@ export class Quiz {
      */
     private cliquerBoutonSoumettreMesChoix(evenement: Event):void {
         this.cacherQuestion(this.questionActive);
-        this.afficherResultatsFinaux();
+        this.afficherResultatsFinaux(evenement);
     }
 
     /**
@@ -108,10 +108,23 @@ export class Quiz {
     /**
      * Affichage de la section résultats
      */
-    private afficherResultatsFinaux():void {
-        console.log('in');
-        console.log(document.querySelector('.sectionResultats'));
-        document.querySelector('.sectionResultats')
+    private afficherResultatsFinaux(evenement):void {
+        const resultats:HTMLElement = document.querySelector('.sectionResultats');
+
+        resultats
+            .closest('.conteneurQuiz')
+            .querySelector('.zonePointage')
+            .remove();
+        resultats
+            .closest('.conteneurQuiz')
+            .querySelector('.indicateurQuestion')
+            .remove();
+
+        // resultats
+        //     .closest('.bg_quiz')
+        //     .style = "background:url('');";
+
+        resultats
             .innerHTML =
             '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
             '<div class="resultats__statistiques">' +

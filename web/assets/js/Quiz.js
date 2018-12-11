@@ -93,7 +93,7 @@ define(["require", "exports"], function (require, exports) {
          */
         cliquerBoutonSoumettreMesChoix(evenement) {
             this.cacherQuestion(this.questionActive);
-            this.afficherResultatsFinaux();
+            this.afficherResultatsFinaux(evenement);
         }
         /**
          * Actions lorsque le bouton Suivant est cliqué
@@ -107,10 +107,20 @@ define(["require", "exports"], function (require, exports) {
         /**
          * Affichage de la section résultats
          */
-        afficherResultatsFinaux() {
-            console.log('in');
-            console.log(document.querySelector('.sectionResultats'));
-            document.querySelector('.sectionResultats')
+        afficherResultatsFinaux(evenement) {
+            const resultats = document.querySelector('.sectionResultats');
+            resultats
+                .closest('.conteneurQuiz')
+                .querySelector('.zonePointage')
+                .remove();
+            resultats
+                .closest('.conteneurQuiz')
+                .querySelector('.indicateurQuestion')
+                .remove();
+            // resultats
+            //     .closest('.bg_quiz')
+            //     .style = "background:url('');";
+            resultats
                 .innerHTML =
                 '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
                     '<div class="resultats__statistiques">' +

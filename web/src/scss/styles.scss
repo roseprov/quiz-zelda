@@ -27,8 +27,8 @@
           'container-spread': 'wide',
   );
   .conteneur {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    //overflow-x: hidden;
+    //overflow-y: hidden;
     //min-width de 305 pour faire 320px avec les gutter
     min-width: 305px;
     padding: 0 gutter(4)/2;
@@ -48,8 +48,8 @@
           'container-spread': 'narrow'
   );
   .conteneur {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    //overflow-x: hidden;
+    //overflow-y: hidden;
 
     max-width:1280px;
     margin: 0 auto;
@@ -162,8 +162,8 @@
 
   .containerAccueil {
     //min-height:100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    //overflow-x: hidden;
+    //overflow-y: hidden;
     display:flex;
     flex-direction: column;
     
@@ -195,8 +195,8 @@
       line-height: 26px;
       background-color: $noir60;
 
-      padding: 1rem;
-      margin: 5rem 0;
+      padding: 1rem 2rem;
+      margin: 5rem -2rem;
 
       @include fontSize(16px);
 
@@ -497,9 +497,29 @@
 
 }
 
+.bg_resultats{
+  background:url('../images/bg_resultat_w800.jpg') no-repeat center center fixed;
+  background-size:cover;
+
+  @media(min-width: $tablettePaysage) {
+    background: url('../images/bg_resultat_w1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+  }
+  @media(min-width: $desktop) {
+    background: url('../images/bg_resultat_w2560.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
 .pageResultats{
-  overflow-x: hidden;
-  overflow-y: hidden;
+  font-family: $fonteTitre;
+  color:$blanc;
+
+  .titreResultat{
+    @include fontSize(26px);
+    text-shadow: $ombre;
+    text-align: center;
+  }
 
 }
 
