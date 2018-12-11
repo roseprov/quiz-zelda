@@ -10,7 +10,7 @@ bower_components/
 node_modules/
 # AJOUTER des exceptions pour les bibliothèques JavaScript:1
 !node_modules/axios/
-!node_modules/requirejs/
+node_modules/requirejs/
 !node_modules/picturefill/
 
 # AJOUTs reliés à la pile Heroku / Composer / PHP
