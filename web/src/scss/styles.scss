@@ -68,10 +68,9 @@
 
 
 /** ENTÊTE **/
-input:checked + label{
-  border: 2px solid $blanc;
-  color:pink;
-}
+//input:checked + label{
+//  border: 2px solid $blanc;
+//}
 .header{
   display:inline-block;
   background-color: $noirFond;
@@ -166,14 +165,16 @@ input:checked + label{
 }
 
 .pageAccueil {
-  //overflow:hidden;
   .containerAccueil {
-    //overflow: hidden;
-    margin-top:4rem;
+    margin-top:0rem;
     display: flex;
     flex-direction: column;
 
+    @media(min-width: $mobile){
+      margin-top: 4rem;
+    }
     @media (min-width: $tablettePortrait) {
+      margin-top:5rem;
       align-items: flex-end;
     }
     @media (min-width: $tablettePaysage) {
@@ -202,7 +203,7 @@ input:checked + label{
       background-color: $noir60;
 
       padding: 1rem 2rem;
-      margin: 5rem -2rem;
+      margin: 2rem -2rem;
 
       @include fontSize(16px);
 
@@ -213,7 +214,9 @@ input:checked + label{
           margin-bottom: 2rem;
         }
       }
-
+      @media(min-width: $mobile){
+        margin: 4rem -2rem;
+      }
       @media(min-width: $tablettePortrait) {
         width: span(3 of 4)+gutter()/2;
         padding-right: 2rem;
@@ -227,6 +230,8 @@ input:checked + label{
 
     }
     .btnSoumettre {
+      margin-bottom:2rem;
+
       @media(min-width: $tablettePaysage) {
         margin-right: span(1 wide of 12);
       }
@@ -301,8 +306,9 @@ input:checked + label{
         margin-left: span(1 wide of 12);
 
         .flexitem{
+          display:block;
+          height:100%;
           width:span(5 of 10);
-
         }
       }
     }
@@ -382,7 +388,6 @@ input:checked + label{
 
     .choix {
       position:relative;
-      //background-color: $blancFond;
       margin-bottom: 0.5rem;
       width: span(4 of 4);
 
@@ -433,78 +438,95 @@ input:checked + label{
     }
   }
 
+  .bonneReponse,
+  .mauvaiseReponse{
+    z-index: 90;
+  }
 
-  .reponse{
-    //margin-top:-6rem;
-    @media(min-width: $tablettePaysage){
-      width:span(5 of 12);
-      margin-left: span(6 wide of 12);
+
+.sectionQuestion {
+  .reponse {
+    @media(min-width: $tablettePaysage) {
+      width: span(5 of 5);
     }
 
-    .retroaction{
-      margin-top:0;
+    .retroaction {
+      margin-top: 0;
+      @include fontSize(18px);
+      font-family: $fonteTitre;
+      //text-transform: uppercase;
     }
-    .flex{
-      display:block;
+    .flex {
+      display: block;
       @include fontSize(16px);
       text-align: center;
-      @media(min-width:$tablettePortrait){
-        display:flex;
+      @media(min-width: $tablettePortrait) {
+        display: flex;
         justify-content: center;
-        margin:auto;
-        width:span(3 of 4);
+        margin: auto;
+        width: span(3 of 4);
       }
-      @media(min-width: $tablettePaysage){
-        width:100%;
+      @media(min-width: $tablettePaysage) {
+        width: 100%;
       }
 
-      .explication{
+      .explication {
         text-align: left;
         font-family: $fonteBold;
         text-shadow: $ombre;
-        p{
-          margin:0 0 1rem 0;
+        p {
+          margin: 0 0 1rem 0;
         }
-        @media(min-width:$tablettePortrait){
-          width:span(2 of 3);
+        @media(min-width: $tablettePortrait) {
+          width: span(2 of 3);
         }
-        @media(min-width: $tablettePaysage){
-
+        @media(min-width: $tablettePaysage) {
+          width:span(3 of 5);
         }
       }
 
-      .imgReponse{
-        img{
-          width:span(1.5 of 4);
-          @media(min-width:$tablettePortrait){
-            width:100%;
+      .imgReponse {
+        img {
+          width: span(1.5 of 4);
+          @media(min-width: $tablettePortrait) {
+            width: 100%;
           }
         }
-        @media(min-width:$tablettePortrait){
-          width:span(1 of 3);
-          margin-right:gutter();
+        @media(min-width: $tablettePortrait) {
+          width: span(1 of 3);
+          margin-right: gutter();
         }
-        @media(min-width: $tablettePaysage){
-          width:span(2 of 5)
+        @media(min-width: $tablettePaysage) {
+          margin-right: gutter()/2;
+          width: span(2 of 5);
         }
       }
     }
 
     .btn_next,
-    .btn_soumettre{
-      margin:2rem 0;
-      @media(min-width: $tablettePortrait){
-        margin-left:span(2 wide of 4);
+    .btn_soumettre {
+      margin: 2rem 0;
+      @media(min-width: $tablettePortrait) {
+        margin-left: span(2 wide of 4);
       }
-      @media(min-width: $tablettePaysage){
-        //margin-left:span(8 of 12)+gutter()/3;
-        width:span(3 of 5);
-        margin-left:span(2 wide of 5);
+      @media(min-width: $tablettePaysage) {
+        width: span(3 of 5);
+        margin-left: span(2 wide of 5);
       }
     }
 
   }
+}
+}
 
+.btn_valider{
+  @media(min-width: $tablettePortrait) {
+    margin-left: span(1 wide of 4);
+  }
+  @media(min-width: $tablettePaysage) {
+    width: span(3 of 12);
+    margin-left: span(8 wide of 12);
+  }
 }
 
 .bg_resultats{
@@ -520,6 +542,10 @@ input:checked + label{
     background: url('../images/bg_resultat_w2560.jpg') no-repeat center center fixed;
     background-size: cover;
   }
+}
+
+li .hover input[type="radio"]:checked+label{
+  color:pink;
 }
 
 
@@ -597,7 +623,6 @@ input:checked + label{
   bottom: 0;
   right:0;
   left:0;
-  //display: block;
   width: 100%;
 
   .creditPhoto {
@@ -625,11 +650,3 @@ input:checked + label{
     }
   }
 }
-
-
-//.pageAccueil{
-//  .footer{
-//    position: absolute;
-//    bottom:0;
-//  }
-//}

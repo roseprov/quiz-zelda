@@ -52,20 +52,20 @@
         <form action="resultats.php" novalidate>
             <section id="Q1" class="question1">
                 <fieldset class="q1">
-                    <div class="flex">
+                    <div class="flex sectionQuestion">
                         <div class="flexitem question">
-                            <legend class="titreQuestion">Quel est le nom de cette mélodie ?</legend>
+                            <legend class="titreQuestion">Quel est le nom de cette mélodie?</legend>
                             <picture class="imgQuestion">
                                 <source srcset="assets/images/img_q1_w417.jpg 1x, assets/images/img_q1_w680.jpg 2x">
                                 <img src="assets/images/img_q1_w417.jpg" alt="Mélodie dans Ocarina of Time">
                             </picture>
                         </div>
                         <div class="flexitem">
-                            <p class="instructionQuestion">Veuillez sélectionner la bonne réponse</p>
+                            <p class="instructionQuestion">Veuillez sélectionner la bonne réponse.</p>
                             <ul class="choixReponses">
                                 <li class="choix">
                                     <div class="hover">
-                                        <input id="Q1A" type="radio" class="input" name="Q1" value="Q1A">
+                                        <input id="Q1A" type="radio" class="input" name="Q1" value="Q1A" required>
                                         <span class="icones">
                                   <span class="icone-rupee"></span>
                               </span>
@@ -100,42 +100,43 @@
                                     </div>
                                 </li>
                             </ul>
+                            <div class="reponse">
+                                <p class="retroaction"></p>
+                                <div class="flex">
+                                    <picture class="imgReponse">
+                                    </picture>
+                                    <div class="explication"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </fieldset>
-                <div class="reponse">
-                    <p class="retroaction"></p>
-                    <div class="flex">
-                        <picture class="imgReponse">
-                        </picture>
-                        <div class="explication"></div>
-                    </div>
-                </div>
+
                 <p class="erreur" aria-live="assertive" aria-atomic="true">
                 </p>
             </section>
 
             <section id="Q2" class="question2">
                 <fieldset class="q2">
-                    <div class="flex">
+                    <div class="flex sectionQuestion">
                         <div class="flexitem question">
                             <legend class="titreQuestion">Quels sont les noms des trois divinités qui ont créé le
-                                Triforce ?
+                                Triforce?
                             </legend>
                             <picture class="imgQuestion">
                                 <source media="(min-width:601px)"
-                                        srcset="assets/images/img_q2_w320.png 1x, assets/images/img_q1_w834.png 2x">
+                                        srcset="assets/images/img_q2_w320.png 1x, assets/images/img_q2_w834.png 2x">
                                 <source media="(max-width:600px)"
-                                        srcset="assets/images/img_q2_w160.png 1x, assets/images/img_q1_w320.png 2x">
+                                        srcset="assets/images/img_q2_w160.png 1x, assets/images/img_q2_w320.png 2x">
                                 <img src="assets/images/img_q2_w320.png" alt="Blason du Triforce">
                             </picture>
                         </div>
                         <div class="flexitem">
-                            <p class="instructionQuestion">Veuillez sélectionner la bonne réponse</p>
+                            <p class="instructionQuestion">Veuillez sélectionner la bonne réponse.</p>
                             <ul class="choixReponses">
                                 <li class="choix">
                                     <div class="hover">
-                                        <input id="Q2A" type="radio" class="input" name="Q2" value="Q2A">
+                                        <input id="Q2A" type="radio" class="input" name="Q2" value="Q2A" required>
                                         <span class="icones">
                               <span class="icone-rupee"></span>
                             </span>
@@ -176,40 +177,40 @@
                                     </div>
                                 </li>
                             </ul>
+                            <div class="reponse">
+                                <p class="retroaction"></p>
+                                <div class="flex">
+                                    <picture class="imgReponse">
+                                    </picture>
+                                    <div class="explication"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </fieldset>
-                <div class="reponse">
-                    <p class="retroaction"></p>
-                    <div class="flex">
-                        <picture class="imgReponse">
-                        </picture>
-                        <div class="explication"></div>
-                    </div>
-                </div>
                 <p class="erreur" aria-live="assertive" aria-atomic="true">
                 </p>
             </section>
 
             <section id="Q3" class="question3">
                 <fieldset class="q3">
-                    <div class="flex">
+                    <div class="flex sectionQuestion">
                         <div class="flexitem question">
-                            <legend class="titreQuestion">Quel est le nom de ce personnage ?</legend>
+                            <legend class="titreQuestion">Quel est le nom de ce personnage?</legend>
                             <picture class="imgQuestion">
-                                <source srcset="assets/images/img_q3_w196.png 1x, assets/images/img_q1_w392.png 2x">
+                                <source srcset="assets/images/img_q3_w196.png 1x, assets/images/img_q3_w392.png 2x">
                                 <img src="assets/images/img_q3_w392.png" alt="Créature de City in the Sky">
                             </picture>
                         </div>
                         <div class="flexitem">
-                            <p class="instructionQuestion">Veuillez sélectionner la bonne réponse</p>
+                            <p class="instructionQuestion">Veuillez sélectionner la bonne réponse.</p>
                             <ul class="choixReponses">
                                 <li class="choix">
                                     <div class="hover">
                           <span class="icones">
                               <span class="icone-rupee"></span>
                           </span>
-                                        <input id="Q3A" type="radio" class="input" name="Q3" value="Q3A">
+                                        <input id="Q3A" type="radio" class="input" name="Q3" value="Q3A" required>
                                         <label class="label" for="Q3A"><span>Ooccoo</span></label>
                                     </div>
                                 </li>
@@ -237,32 +238,32 @@
                                 </li>
                                 <li class="choix">
                                     <div class="hover">
-                          <span class="icones">
-                              <span class="icone-rupee"></span>
-                              <span class="icone-rupee"></span>
-                              <span class="icone-rupee"></span>
-                              <span class="icone-rupee"></span>
-                          </span>
+                                          <span class="icones">
+                                              <span class="icone-rupee"></span>
+                                              <span class="icone-rupee"></span>
+                                              <span class="icone-rupee"></span>
+                                              <span class="icone-rupee"></span>
+                                          </span>
                                         <input id="Q3D" type="radio" class="input" name="Q3" value="Q3D">
                                         <label class="label" for="Q3D"><span>Aucunes de ces réponses</span></label>
                                     </div>
                                 </li>
                             </ul>
+                            <div class="reponse">
+                                <p class="retroaction"></p>
+                                <div class="flex">
+                                    <picture class="imgReponse">
+                                    </picture>
+                                    <div class="explication"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </fieldset>
-                <div class="reponse">
-                    <p class="retroaction"></p>
-                    <div class="flex">
-                        <picture class="imgReponse">
-                        </picture>
-                        <div class="explication"></div>
-                    </div>
-                </div>
                 <p class="erreur" aria-live="assertive" aria-atomic="true">
                 </p>
-                <button id='validerQuiz' class="bouton" name='validerQuiz' type="submit">Valider mes choix</button>
             </section>
+            <button id='validerQuiz' class="bouton btn_valider" name='validerQuiz' type="submit">Valider mes choix</button>
         </form>
     </div>
     <section class="sectionResultats conteneur">
