@@ -302,6 +302,18 @@
             console.log('L\'enregistrement du SW a échoué: ' + erreur);
         });
     }
+    window.addEventListener('beforeinstallprompt', (evenement) => {
+        evenement.prompt();
+// Attendre que l'utilisateur réponde à l'invite d'installation
+        evenement.userChoice
+            .then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('L\'utilisateur a accepté l\'invite d\'installation');
+                } else {
+                    console.log('L\'utilisateur a refusé l\'invite d\'installation');
+                }
+            });
+    });
 </script>
 
 <script src="logging.js"></script>
