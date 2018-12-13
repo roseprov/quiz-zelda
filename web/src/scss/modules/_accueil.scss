@@ -1,0 +1,103 @@
+/** PAGE ACCUEIL **/
+.bg_accueil {
+  overflow-x:hidden;
+  overflow-y: hidden;
+  font-family: $fonteBold;
+  color: white;
+
+  background: url('../images/bg_accueil_w800.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  @media(min-width: $tablettePaysage) {
+    background: url('../images/bg_accueil_w1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+  }
+  @media(min-width: $desktop) {
+    background: url('../images/bg_accueil_w2560.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+.main-container{
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 5rem;
+}
+
+.pageAccueil {
+  .containerAccueil {
+    margin-top:0rem;
+    display: flex;
+    flex-direction: column;
+
+    @media(min-width: $mobile){
+      margin-top: 4rem;
+    }
+    @media (min-width: $tablettePortrait) {
+      margin-top:5rem;
+      align-items: flex-end;
+    }
+    @media (min-width: $tablettePaysage) {
+      justify-content: space-around;
+    }
+
+    .titre {
+      margin: 3rem 0 0 0;
+      color: $noir;
+      @include fontSize(26px);
+
+      @media(min-width: $tablettePortrait) {
+        @include fontSize(34px);
+        width: span(3 of 4);
+      }
+      @media(min-width: $tablettePaysage) {
+        @include fontSize(36px);
+        width: span(6 of 12);
+      }
+
+    }
+
+    .introduction {
+      display: block;
+      line-height: 26px;
+      background-color: $noir60;
+
+      padding: 1rem 2rem;
+      margin: 2rem -2rem;
+
+      @include fontSize(16px);
+
+      p {
+        padding-right: 4rem;
+        padding-left: 1rem;
+        &:first-child {
+          margin-bottom: 2rem;
+        }
+      }
+      @media(min-width: $mobile){
+        margin: 4rem -2rem;
+      }
+      @media(min-width: $tablettePortrait) {
+        width: span(3 of 4)+gutter()/2;
+        padding-right: 2rem;
+      }
+
+      @media(min-width: $tablettePaysage) {
+        padding-right: span(1 of 12);
+        margin: 5rem 0;
+        width: span(6 of 12);
+      }
+
+    }
+    .btnSoumettre {
+      margin-bottom:2rem;
+
+      @media(min-width: $tablettePaysage) {
+        margin-right: span(1 wide of 12);
+      }
+    }
+  }
+}

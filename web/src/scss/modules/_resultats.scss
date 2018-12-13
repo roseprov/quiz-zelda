@@ -1,0 +1,85 @@
+/** FOOTER **/
+.bg_resultats{
+  background:url('../images/bg_resultat_w800.jpg') no-repeat center center fixed;
+  background-size:cover;
+
+  @media(min-width: $tablettePaysage) {
+    background: url('../images/bg_resultat_w1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+  }
+  @media(min-width: $desktop) {
+    background: url('../images/bg_resultat_w2560.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+
+
+.pageResultats{
+  margin-top:4rem;
+  display:flex;
+  font-family: $fonteTitre;
+  color:$blanc;
+  text-align: center;
+
+  @media(min-width: $tablettePortrait){
+    text-align: left;
+  }
+  @media(min-width: $tablettePaysage){
+    justify-content: flex-end;
+  }
+
+  .containerResultats{
+    width:100%;
+    @media(min-width: $tablettePaysage){
+      width:span(6 of 12);
+    }
+  }
+
+
+  .titreResultat{
+    @include fontSize(26px);
+    text-shadow: $ombre;
+
+    @media(min-width: $tablettePortrait){
+      @include fontSize(34px);
+      width:span(3 of 4);
+      margin-left: span(1 wide of 4);
+    }
+    @media(min-width: $tablettePaysage){
+      @include fontSize(36px);
+      width:span(6 of 6);
+      margin-left:0;
+    }
+  }
+
+  .information {
+    background-color: $noir60;
+    padding:2rem 1rem;
+    margin:0 -2rem;
+
+    @media(min-width: $tablettePortrait) {
+      margin-left: span(1 wide of 4);
+    }
+    @media(min-width: $tablettePaysage){
+      width:span(6 of 6);
+      margin-left:0;
+      padding-left:2rem;
+    }
+
+  }
+  .btnRecommencer{
+    margin: 4rem 0;
+    display:flex;
+    justify-content: flex-end;
+    a{
+      @media(min-width: $tablettePaysage){
+        width:span(3 of 6);
+        margin-right:span(1 wide of 6);
+      }
+    }
+
+  }
+
+}
