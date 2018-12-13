@@ -110,28 +110,36 @@ export class Quiz {
      */
     private afficherResultatsFinaux(evenement):void {
         const resultats:HTMLElement = document.querySelector('.sectionResultats');
-
+        console.log(resultats.innerHTML);
         resultats
-            .closest('.conteneurQuiz')
+            .parentElement
             .querySelector('.zonePointage')
             .remove();
         resultats
-            .closest('.conteneurQuiz')
+            .parentElement
             .querySelector('.indicateurQuestion')
             .remove();
 
-        // resultats
-        //     .closest('.bg_quiz')
-        //     .style = "background:url('');";
-
         resultats
             .innerHTML =
-            '<p class="resultats__titre">Vous avez terminé le quiz !</p>' +
-            '<div class="resultats__statistiques">' +
-            '     <p>Vous avez obtenu ' + this.pointage + ' rupees !</p>' +
-            '     <p>' + this.questionsReussi + ' sur 3 questions de réussi !</p>' +
-            '</div>' +
-            '<a href="quiz.html" class="bouton">Recommencer le quiz</a>';
+            `<div class="pageResultats">
+                <div class="containerResultats">
+                    <h1 hidden>Résultats</h1>
+                    <p class="titreResultat">Vous avez terminé le quiz!</p>
+                    <div class="information">
+                        <p>Vous avez obtenu ${this.pointage} rupees!</p>
+                        <p>${this.questionsReussi} sur 3 questions de réussi!</p>
+                    </div>
+                    <div class="btnRecommencer">
+                        <a href="quiz.html" class="bouton">Recommencer le quiz</a>
+                    </div>
+                </div>
+            </div>`;
+
+        resultats
+            .closest('body')
+            .className = 'bg_resultats';
+
     }
 
     /**
@@ -216,11 +224,13 @@ export class Quiz {
      */
     private afficherRetroactionReponse(element:HTMLInputElement, noQuestion:number, imgContenu:string):void {
         const bonneReponse:string = this.objJSONQuiz['bonnesReponses'][noQuestion-1];
-        // const explications:HTMLElement = element.closest('section').querySelector('.q'+noQuestion+'__reponse');
         const explications:HTMLElement = element.closest('section').querySelector('.reponse');
+        const arrChoix:any = element.closest('.choixReponses').querySelectorAll('.choix');
         let couleurRetroaction = "#7CC66C";
         let retroaction:string = 'positive';
         let rupees:string = "";
+
+        // console.log(arrChoix[0].classList);
 
         // Création du bouton
         this.creerBouton(noQuestion, explications);
@@ -232,6 +242,11 @@ export class Quiz {
             .querySelector('.label')
             .style = 'border: 2px solid #7CC66C;';
 
+        element.closest('.choixReponses')
+            .querySelector('[value=' + bonneReponse + ']')
+            .closest('.choix')
+            .classList.add('bonneReponse');
+
         //Vérifier la rétroaction de la question
         if(element.value != bonneReponse){
             retroaction = 'negative';
@@ -240,11 +255,25 @@ export class Quiz {
                 .closest('.choix')
                 .querySelector('.label')
                 .style = 'border:2px solid #C03E3E;';
+            element
+                .closest('.choix')
+                .classList.add('mauvaiseReponse');
         } else {
             this.questionsReussi += 1;
             rupees = this.objJSONQuiz['pointsReponse'][noQuestion-1];
             this.pointage += parseInt(rupees);
         }
+
+        arrChoix.forEach(element => {
+            console.log(element);
+            if(!(element.classList[1] == 'bonneReponse' || element.classList[1] == 'mauvaiseReponse')){
+                // element.classList.add('fadeOut');
+                element.querySelector('.hover')
+                    .classList.add('fadeOut');
+                // element.classList.remove('choix');
+                // element.remove();
+            }
+        });
 
         //Insérer les informations dans les balises appropriées
         explications
@@ -263,6 +292,9 @@ export class Quiz {
         explications
             .querySelector('.explication')
             .innerHTML = this.objJSONQuiz['explications']['Q'+noQuestion];
+
+        explications.classList.add('slideInUp');
+
 
     }
 

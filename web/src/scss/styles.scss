@@ -27,6 +27,7 @@
           'container-spread': 'wide',
   );
   .conteneur {
+    //height:100%;
     //overflow-x: hidden;
     //overflow-y: hidden;
     //min-width de 305 pour faire 320px avec les gutter
@@ -50,7 +51,7 @@
   .conteneur {
     //overflow-x: hidden;
     //overflow-y: hidden;
-
+    //height:100%;
     max-width:1280px;
     margin: 0 auto;
     background: susy-svg-grid((
@@ -65,8 +66,12 @@
 
 /** Styles **/
 
-/** ENTÊTE **/
 
+/** ENTÊTE **/
+input:checked + label{
+  border: 2px solid $blanc;
+  color:pink;
+}
 .header{
   display:inline-block;
   background-color: $noirFond;
@@ -132,7 +137,7 @@
 
 
 /** PAGE ACCUEIL **/
-.pageAccueil {
+.bg_accueil {
   overflow-x:hidden;
   overflow-y: hidden;
   font-family: $fonteBold;
@@ -160,17 +165,18 @@
   padding-bottom: 5rem;
 }
 
+.pageAccueil {
+  //overflow:hidden;
   .containerAccueil {
-    //min-height:100%;
-    //overflow-x: hidden;
-    //overflow-y: hidden;
-    display:flex;
+    //overflow: hidden;
+    margin-top:4rem;
+    display: flex;
     flex-direction: column;
-    
+
     @media (min-width: $tablettePortrait) {
-      align-items:flex-end;
+      align-items: flex-end;
     }
-    @media (min-width:$tablettePaysage){
+    @media (min-width: $tablettePaysage) {
       justify-content: space-around;
     }
 
@@ -200,10 +206,10 @@
 
       @include fontSize(16px);
 
-      p{
+      p {
         padding-right: 4rem;
         padding-left: 1rem;
-        &:first-child{
+        &:first-child {
           margin-bottom: 2rem;
         }
       }
@@ -213,19 +219,20 @@
         padding-right: 2rem;
       }
 
-      @media(min-width: $tablettePaysage){
+      @media(min-width: $tablettePaysage) {
         padding-right: span(1 of 12);
-        margin:  5rem 0;
-        width:span(6 of 12);
+        margin: 5rem 0;
+        width: span(6 of 12);
       }
 
     }
-    .btnSoumettre{
-      @media(min-width: $tablettePaysage){
+    .btnSoumettre {
+      @media(min-width: $tablettePaysage) {
         margin-right: span(1 wide of 12);
       }
     }
   }
+}
 
 
 /** PAGE QUIZ **/
@@ -238,6 +245,7 @@
   position:relative;
   font-family: $fonte;
   text-align: center;
+  margin: 1rem 0 10rem 0;
 
   @media(min-width:$tablettePaysage){
     text-align:left;
@@ -264,6 +272,9 @@
   .instructionQuestion{
     margin:3rem 0 0 0;
     text-shadow: $ombre;
+    @media(min-width:$tablettePaysage){
+      margin:0;
+    }
   }
 
   .icone-pouch{
@@ -357,6 +368,7 @@
 
 
   .choixReponses{
+
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -370,7 +382,7 @@
 
     .choix {
       position:relative;
-      background-color: $blancFond;
+      //background-color: $blancFond;
       margin-bottom: 0.5rem;
       width: span(4 of 4);
 
@@ -380,12 +392,11 @@
       @media(min-width: $tablettePaysage){
         width:span(5 of 5);
       }
-      @include hover();
 
       .icones{
         display:inline-block;
         position:absolute;
-        width:span(1 of 4);
+        width:span(1 wide of 4);
         margin:auto;
         padding-left:gutter();
         top:50%;
@@ -402,10 +413,6 @@
         }
       }
 
-      .input:checked + .label{
-        border: 2px solid $blanc;
-      }
-
       .label{
         cursor: pointer;
         border: 2px solid $gris;
@@ -414,7 +421,10 @@
         padding: 20px 0;
 
         span{
-          padding-left: span(1 of 4)+gutter();
+          padding-left: span(1.3 of 4);
+          @media(min-width: $mobile){
+            padding-left: span(1 of 4)+gutter();
+          }
         }
       }
       .input{
@@ -425,7 +435,7 @@
 
 
   .reponse{
-
+    //margin-top:-6rem;
     @media(min-width: $tablettePaysage){
       width:span(5 of 12);
       margin-left: span(6 wide of 12);
@@ -482,7 +492,7 @@
 
     .btn_next,
     .btn_soumettre{
-      margin-top:1.5rem;
+      margin:2rem 0;
       @media(min-width: $tablettePortrait){
         margin-left:span(2 wide of 4);
       }
@@ -511,49 +521,109 @@
     background-size: cover;
   }
 }
+
+
+
 .pageResultats{
+  margin-top:4rem;
+  display:flex;
   font-family: $fonteTitre;
   color:$blanc;
+  text-align: center;
+
+  @media(min-width: $tablettePortrait){
+    text-align: left;
+  }
+  @media(min-width: $tablettePaysage){
+    justify-content: flex-end;
+  }
+
+  .containerResultats{
+    width:100%;
+    @media(min-width: $tablettePaysage){
+      width:span(6 of 12);
+    }
+  }
+
 
   .titreResultat{
     @include fontSize(26px);
     text-shadow: $ombre;
-    text-align: center;
+
+    @media(min-width: $tablettePortrait){
+      @include fontSize(34px);
+      width:span(3 of 4);
+      margin-left: span(1 wide of 4);
+    }
+    @media(min-width: $tablettePaysage){
+      @include fontSize(36px);
+      width:span(6 of 6);
+      margin-left:0;
+    }
+  }
+
+  .information {
+    background-color: $noir60;
+    padding:2rem 1rem;
+    margin:0 -2rem;
+
+    @media(min-width: $tablettePortrait) {
+      margin-left: span(1 wide of 4);
+    }
+    @media(min-width: $tablettePaysage){
+      width:span(6 of 6);
+      margin-left:0;
+      padding-left:2rem;
+    }
+
+  }
+  .btnRecommencer{
+    margin: 4rem 0;
+    display:flex;
+    justify-content: flex-end;
+    a{
+      @media(min-width: $tablettePaysage){
+        width:span(3 of 6);
+        margin-right:span(1 wide of 6);
+      }
+    }
+
   }
 
 }
 
-.footer{
-  position:absolute;
-  bottom:0;
-  display:block;
-  width:100%;
+.footer {
+  position: absolute;
+  bottom: 0;
+  right:0;
+  left:0;
+  //display: block;
+  width: 100%;
 
-  .creditPhoto{
+  .creditPhoto {
     color: $blanc;
-    a{
-      text-decoration: none;
+    a {
+      color: $blanc;
     }
     @include fontSize(10px);
     font-family: Cabin, Helvetica, sans-serif;
   }
 
-  .fond{
+  .fond {
     text-align: center;
     background-color: $noir;
     color: #B2B2B2;
     font-family: Cabin, Helvetica, sans-serif;
-    padding:0.25rem;
+    padding: 0.25rem;
     @include fontSize(12px);
 
-    .attributions{
-      display:block;
+    .attributions {
+      display: block;
       color: #B2B2B2;
       font-family: Cabin, Helvetica, sans-serif;
       @include fontSize(10px);
     }
   }
-
 }
 
 

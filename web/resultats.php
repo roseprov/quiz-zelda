@@ -31,6 +31,7 @@ if (isset($_GET['validerQuiz'])) {
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg_resultats">
+<div class="main-container">
 <header role="banner" class="header">
     <div class="conteneur">
         <a href="index.html" class="titre">
@@ -41,30 +42,30 @@ if (isset($_GET['validerQuiz'])) {
         </a>
     </div>
 </header>
-<main class="main pageResultats">
-    <div class="conteneur">
+<main class="conteneur">
+    <div class="pageResultats">
+    <div class="containerResultats">
         <h1 hidden>Résultats</h1>
-        <p class="titreResultat">Vous avez terminé le quiz !</p>
-    </div>
-    <div class="information">
-        <div class="conteneur">
-            <p>Vous avez obtenu <?= $intPointage ?> rupees !</p>
-            <p><?= $intRepCorrectes ?> sur 3 questions de réussi !</p>
+        <p class="titreResultat">Vous avez terminé le quiz!</p>
+        <div class="information">
+            <p>Vous avez obtenu <?= $intPointage ?> rupees!</p>
+            <p><?= $intRepCorrectes ?> sur 3 questions de réussi!</p>
+        </div>
+        <div class="btnRecommencer">
+            <a href="quiz.html" class="bouton">Recommencer le quiz</a>
         </div>
     </div>
-    <div class="conteneur">
-        <a href="quiz.html" class="bouton">Recommencer le quiz</a>
     </div>
 </main>
 
 <footer class="footer" role="contentinfo">
-    <span class="creditPhoto"><a href="www.jeffbrowngraphics.com">Art de Jeff Brown</a></span>
+    <span class="creditPhoto"><a href="www.jeffbrowngraphics.com">Art de Jeff Brown (www.jeffbrowngraphics.com)</a></span>
     <div class="fond">
         <small>Rose Provencher; Toutes les images appartiennent à © Nintendo, 2018</small>
         <a href="attributions.html" class="attributions">Voir les sources des images/médias et les attributions</a>
     </div>
 </footer>
-
+</div>
 </body>
 </html>
 
