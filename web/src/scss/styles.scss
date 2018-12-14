@@ -71,9 +71,8 @@
 
 
 /** ENTÊTE **/
-//input:checked + label{
-//  border: 2px solid $blanc;
-//}
+
+
 label{
   border: 2px solid $gris;
 }
@@ -160,7 +159,7 @@ input[type="radio"]:checked~label{
     a {
       color: $blanc;
     }
-    @include fontSize(10px);
+    @include fontSize(12px);
     font-family: Cabin, Helvetica, sans-serif;
   }
 

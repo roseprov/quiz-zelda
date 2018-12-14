@@ -61,7 +61,8 @@ if (isset($_GET['validerQuiz'])) {
 <footer class="footer" role="contentinfo">
     <span class="creditPhoto"><a href="www.jeffbrowngraphics.com">Art de Jeff Brown (www.jeffbrowngraphics.com)</a></span>
     <div class="fond">
-        <small>Rose Provencher; Toutes les images appartiennent à © Nintendo, 2018</small>
+        <small>Toutes les images et les contenus appartiennent à © Nintendo</small>
+        <small>Quiz crée par Rose Provencher, 2018</small>
         <a href="attributions.html" class="attributions">Voir les sources des images/médias et les attributions</a>
     </div>
 </footer>
