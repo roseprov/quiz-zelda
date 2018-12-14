@@ -125,7 +125,7 @@ define(["require", "exports"], function (require, exports) {
                     <h1 hidden>Résultats</h1>
                     <p class="titreResultat">Vous avez terminé le quiz!</p>
                     <div class="information">
-                        <p>Vous avez obtenu ${this.pointage} rupees!</p>
+                        <p>Vous avez obtenu ${this.pointage} sur 100 rupees!</p>
                         <p>${this.questionsReussi} sur 3 questions de réussi!</p>
                     </div>
                     <div class="btnRecommencer">
@@ -211,8 +211,7 @@ define(["require", "exports"], function (require, exports) {
             const arrChoix = element.closest('.choixReponses').querySelectorAll('.choix');
             let couleurRetroaction = "#7CC66C";
             let retroaction = 'positive';
-            let rupees = "";
-            // console.log(arrChoix[0].classList);
+            let rupees = this.objJSONQuiz['pointsReponse'][noQuestion - 1];
             // Création du bouton
             this.creerBouton(noQuestion, explications);
             //Surligner la bonne réponse
@@ -239,7 +238,6 @@ define(["require", "exports"], function (require, exports) {
             }
             else {
                 this.questionsReussi += 1;
-                rupees = this.objJSONQuiz['pointsReponse'][noQuestion - 1];
                 this.pointage += parseInt(rupees);
             }
             arrChoix.forEach(element => {
@@ -254,10 +252,14 @@ define(["require", "exports"], function (require, exports) {
             explications
                 .querySelector('.retroaction')
                 .innerHTML = this.objJSONQuiz['retroactions'][retroaction];
+            if (element.value == bonneReponse) {
+                explications
+                    .querySelector('.retroaction')
+                    .innerHTML += ` + ${rupees} rupees`;
+            }
             explications
                 .querySelector('.retroaction')
                 .style = 'text-shadow: 0 1px 3px rgba(0,0,0,0.3);';
-            // + ' + ' + rupees;
             explications
                 .querySelector('.retroaction')
                 .style.color = couleurRetroaction;
@@ -267,6 +269,7 @@ define(["require", "exports"], function (require, exports) {
             explications
                 .querySelector('.explication')
                 .innerHTML = this.objJSONQuiz['explications']['Q' + noQuestion];
+            document.querySelector('.pointage').innerHTML = this.pointage.toString();
             explications
                 .classList.add('slideInUpReponse');
         }

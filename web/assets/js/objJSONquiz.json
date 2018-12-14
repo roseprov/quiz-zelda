@@ -14,9 +14,9 @@
     "Q3A"
   ],
   "pointsReponse": [
-    20,
     50,
-    5
+    20,
+    30
   ],
   "messages": {
     "pasDeReponse": "Veuillez d'abord répondre à la question!", 
