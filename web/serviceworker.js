@@ -22,6 +22,7 @@ self.addEventListener('install', function(event) {
                 'index.html',
                 'quiz.html',
                 'resultats.php',
+                'attributions.html',
                 'assets/css/styles.css',
                 'logging.js',
                 'node_modules/jquery/dist/jquery.min.map',

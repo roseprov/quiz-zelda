@@ -1,7 +1,4 @@
 'use strict';
-/*
-* @todo ADAPTER aux besoins du projet
-* */
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -9,12 +6,13 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var svgSprite = require("gulp-svg-sprites");
-var uglify = require('gulp-uglify');
+// var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 
 gulp.task('sass', function () {
     gulp.src('src/scss/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'expanded', includePaths: ["scss/"]}))
+        .pipe(sass({outputStyle: 'compressed', includePaths: ["scss/"]}))
         .on('error', sass.logError)
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -44,14 +42,27 @@ gulp.task('sprites', function () {
         .pipe(gulp.dest('./assets'));
 });
 
-// Tâche 'js'
-gulp.task('uglify', function() {
+// // Tâche 'js'
+// gulp.task('uglify', function() {
+//     return gulp.src('./assets/js/*.js')
+//         .pipe(uglify({
+//             compress: {
+//                 drop_console: true
+//             }
+//         }))
+//         .pipe(gulp.dest('./assets/js/'))
+// });
+// Tâche 'uglifyJS'
+gulp.task('uglifyJS', function() {
     return gulp.src('./assets/js/*.js')
         .pipe(uglify({
             compress: {
                 drop_console: true
             }
         }))
+        .on('error', function (err) {
+            gutil.log(gutil.colors.red('[Error]'), err.toString());
+        })
         .pipe(gulp.dest('./assets/js/'))
 });
 
