@@ -91,11 +91,11 @@
     transition: all 2s ease;
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
-    opacity: 0;
+    //opacity: 0;
   }
   to {
-    opacity: 1;
-    visibility: visible;
+    //opacity: 1;
+    //visibility: visible;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
@@ -171,31 +171,22 @@
   }
   .choix:nth-child(2){
     opacity: 0;
-    animation: slideInRight 1.5s 1.25s;
+    animation: slideInRight 1.5s 1.15s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
   .choix:nth-child(3){
     opacity: 0;
-    animation: slideInRight 1.5s 1.40s;
+    animation: slideInRight 1.5s 1.30s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
   .choix:nth-child(4){
     opacity: 0;
-    animation: slideInRight 1.5s 1.55s;
+    animation: slideInRight 1.5s 1.45s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
-
-
-  //.slideInUpChoix{
-  //  opacity:1;
-  //  animation: slideInUp 1s 1s, fadeOut 800s;
-  //  //animation: slideInUp;
-  //  animation-timing-function: ease-in-out;
-  //  animation-fill-mode: forwards;
-  //}
 
   .slideOutUp{
     animation: slideOutUp 800ms;
@@ -204,7 +195,7 @@
   }
   .slideInUpReponse{
     opacity:0;
-    animation: slideInUp 1s 600ms;
+    animation: fadeIn 1.5s, slideInUp 1s;
     //animation: slideInUp;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;

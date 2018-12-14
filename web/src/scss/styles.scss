@@ -50,12 +50,12 @@
     //height:100%;
     max-width:1280px;
     margin: 0 auto;
-    //background: susy-svg-grid((
-    //        'columns': susy-repeat(12),
-    //        'gutters': 0.16,
-    //        'spread': 'narrow',
-    //        'container-spread': 'narrow'
-    //)) no-repeat scroll;
+    background: susy-svg-grid((
+            'columns': susy-repeat(12),
+            'gutters': 0.16,
+            'spread': 'narrow',
+            'container-spread': 'narrow'
+    )) no-repeat scroll;
   }
 }
 
@@ -151,6 +151,9 @@ input[type="radio"]:checked~label{
   right:0;
   left:0;
   width: 100%;
+  small{
+    display:block;
+  }
 
   .creditPhoto {
     color: $blanc;

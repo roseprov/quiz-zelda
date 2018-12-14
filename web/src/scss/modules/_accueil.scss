@@ -34,10 +34,10 @@
     flex-direction: column;
 
     @media(min-width: $mobile){
-      margin-top: 4rem;
+      margin-top: 2rem;
     }
     @media (min-width: $tablettePortrait) {
-      margin-top:5rem;
+      margin-top:4rem;
       align-items: flex-end;
     }
     @media (min-width: $tablettePaysage) {
@@ -55,7 +55,8 @@
       }
       @media(min-width: $tablettePaysage) {
         @include fontSize(36px);
-        width: span(6 of 12);
+        margin-right:span(1 wide of 12);
+        width: span(5 of 12);
       }
 
     }
