@@ -289,7 +289,7 @@
 <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js">\x3C/script>')</script>
 
 <script src="node_modules/requirejs/require.js" data-main="assets/js/main.js"></script>
-
+<script src="node_modules/picturefill/dist/picturefill.min.js"></script>
 <script>
     //Enregistrement du SW
     // Vérifier si les SW sont supportés par les naviagteurs
@@ -302,6 +302,7 @@
             console.log('L\'enregistrement du SW a échoué: ' + erreur);
         });
     }
+
     window.addEventListener('beforeinstallprompt', (evenement) => {
         evenement.prompt();
 // Attendre que l'utilisateur réponde à l'invite d'installation
