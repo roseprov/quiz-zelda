@@ -1,3 +1,36 @@
+/**
+ * @author Rose Provencher <roseprovencher02@gmail.com>
+**/
+
+/**
+ * ------------------
+ * TABLE DES MATIÈRES
+ * ------------------
+ * BIBLIOTHÈQUES (dans le dossier bower_components)
+ ** normalize
+ ** susy
+ ** svg-grid
+ * UTILITAIRES
+ ** variables
+ ** mixins
+ * BASE
+ ** Charte typographique responsive
+ * MISE EN PAGE SUZY
+ * MODULES
+ ** Animations
+ ** Général
+ ** Accueil
+ ** Quiz
+ ** Resultat
+ * STYLES DU MANDAT
+ ** ENTÊTE
+ *** Titre
+ *** Icone
+ *** The Legend of Zelda
+ ** FOOTER
+**
+*/
+
 /**** BIBLIOTHÈQUES (dans le dossier bower_components) ****/
 @import '../../node_modules/normalize-css/normalize';
 
@@ -67,11 +100,7 @@
 @import 'modules/resultats';
 
 
-/** Styles **/
-
-
-/** ENTÊTE **/
-
+/** STYLES DU MANDAT **/
 
 label{
   border: 2px solid $gris;
@@ -80,7 +109,12 @@ input[type="radio"]:checked~label{
   border: 2px solid $blanc;
   box-shadow: $ombreHover;
 }
+input[type="radio"]:focus~label {
+  border: 2px solid $blanc;
+  box-shadow: $ombreHover;
+}
 
+/** ENTÊTE **/
 .header{
   display:inline-block;
   background-color: $noirFond;

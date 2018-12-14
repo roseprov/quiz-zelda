@@ -19,10 +19,14 @@ self.addEventListener('install', function(event) {
             // et lui ajouter des ressources
             return cache.addAll([
                 './',
-                './index.html',
-                './quiz.html',
+                'index.html',
+                'quiz.html',
+                'resultats.php',
                 'assets/css/styles.css',
                 'logging.js',
+                'node_modules/jquery/dist/jquery.min.map',
+                'node_modules/requirejs/requirejs',
+                'node_modules/picturefill/dist/picturefill.min.js',
                 'assets/js/main.js',
                 'assets/js/Quiz.js',
                 'assets/polices/CinzelDecorative-Bold.ttf',

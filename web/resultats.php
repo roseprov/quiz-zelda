@@ -52,7 +52,7 @@ if (isset($_GET['validerQuiz'])) {
             <p><?= $intRepCorrectes ?> sur 3 questions de réussi!</p>
         </div>
         <div class="btnRecommencer">
-            <a href="quiz.html" class="bouton">Recommencer le quiz</a>
+            <a href="index.html" class="bouton">Recommencer le quiz</a>
         </div>
     </div>
     </div>

@@ -1,9 +1,28 @@
+/**
+ * --------------------------------------------------------
+ * TABLE DES MATIÈRES -
+ * --------------------------------------------------------
+ * PAGE QUIZ
+ ** Arrière-plan
+ ** Haut de la page
+ ** ZONE QUESTION
+ ** Titre
+ ** Image
+ ** Choix de réponses
+ ** ZONE RÉPONSE
+ ** BOUTON VALIDER
+ */
+
+
 /** PAGE QUIZ **/
 
+/* Arrière-plan */
 .bg_quiz{
   background:url('../images/bg_quiz.jpg') no-repeat center center fixed;
   background-size:cover;
 }
+
+/* Haut de la page */
 .pageQuiz{
   position:relative;
   font-family: $fonte;
@@ -49,10 +68,19 @@
     vertical-align: middle;
   }
 
+  /* ZONE QUESTION */
   fieldset{
     border:none;
     padding:0;
     margin:0;
+    text-align: center;
+    @media(min-width: $tablettePaysage){
+      text-align: left;
+    }
+
+    legend{
+      display:inline-block;
+    }
 
     .flex{
       @media(min-width: $tablettePaysage){
@@ -71,7 +99,7 @@
       }
     }
   }
-
+  /* Titre */
   .titreQuestion{
     margin-bottom: 2rem;
     font-family: $fonteBold;
@@ -86,7 +114,7 @@
       width:span(5 of 5);
     }
   }
-
+  /* Image */
   .imgQuestion{
     img{
       width: span(2 of 4);
@@ -96,6 +124,13 @@
       }
     }
   }
+
+  //.question{
+  //  text-align:center;
+  //  @media(min-width: $tablettePaysage){
+  //    text-align:left;
+  //  }
+  //}
 
   .question3{
     .imgQuestion{
@@ -130,7 +165,7 @@
     }
   }
 
-
+  /* Choix de réponses */
   .choixReponses{
 
     display:flex;
@@ -190,11 +225,13 @@
         }
       }
       .input{
+
         @include visuallyhidden;
       }
     }
   }
 
+  /* ZONE RÉPONSE */
   .bonneReponse,
   .mauvaiseReponse{
     z-index: 90;
@@ -276,6 +313,7 @@
   }
 }
 
+/* BOUTON VALIDER */
 .btn_valider{
   @media(min-width: $tablettePortrait) {
     margin-left: span(1 wide of 4);

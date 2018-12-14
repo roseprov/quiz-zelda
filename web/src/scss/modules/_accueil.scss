@@ -1,4 +1,18 @@
+/**
+ * --------------------------------------------------------
+ * TABLE DES MATIÈRES -
+ * --------------------------------------------------------
+ * PAGE ACCUEIL
+ ** Arrière-plan
+ ** Conteneur
+ ** Titre
+ ** Introduction
+ ** Bouton commencer
+ */
+
 /** PAGE ACCUEIL **/
+
+/* Arrière-plan */
 .bg_accueil {
   font-family: $fonteBold;
   color: white;
@@ -17,6 +31,7 @@
   }
 }
 
+/* Conteneur */
 .main-container{
   min-height: 100vh;
   overflow: hidden;
@@ -42,7 +57,7 @@
     @media (min-width: $tablettePaysage) {
       justify-content: space-around;
     }
-
+    /* Titre */
     .titre {
       margin: 3rem 0 0 0;
       color: $noir;
@@ -59,7 +74,7 @@
       }
 
     }
-
+    /* Introduction */
     .introduction {
       display: block;
       line-height: 26px;
@@ -92,6 +107,8 @@
       }
 
     }
+
+    /* Bouton commencer */
     .btnSoumettre {
       margin-bottom:2rem;
 

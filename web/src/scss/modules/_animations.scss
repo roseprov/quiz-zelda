@@ -1,4 +1,18 @@
 @charset "UTF-8";
+/**
+ * --------------------------------------------------------
+ * TABLE DES MATIÈRES -
+ * --------------------------------------------------------
+ * ANIMATIONS
+ ** Mixin de hover
+ ** Classes d'animation
+ * APPEL AUX ANIMATIONS
+ ** Page Accueil
+ ** Page Quiz
+ ** Page Resultats
+ */
+
+
 
 /*!
  * animate.css -http://daneden.me/animate
@@ -12,6 +26,8 @@
  * w: http://animista.net, t: @cssanimista
  * Les animations sont modifiées selon les besoins du projet
  */
+
+/* ANIMATIONS*/
 
 @-webkit-keyframes pulse {
   0%, 86%, 92%, 100% {
@@ -218,6 +234,7 @@
   }
 }
 
+/* Mixin de hover */
 @mixin hover {
   transition:transform 200ms ease-in;
   &:hover,
@@ -228,6 +245,7 @@
   }
 }
 
+/* Classes d'animations */
 .slideOutUp{
   opacity: 1;
   -webkit-animation: slideOutUp 800ms;
@@ -257,7 +275,9 @@
 }
 
 
+/* APPEL AUX ANIMATIONS */
 
+/* Page Accueil */
 .pageAccueil{
   .titre{
     -webkit-animation: fadeIn 2s;
@@ -281,6 +301,7 @@
   }
 }
 
+/* Page Quiz */
 .pageQuiz{
   .question,
   .instructionQuestion{
@@ -318,6 +339,7 @@
   }
 }
 
+/* Page Resultats */
 .pageResultats{
   .containerResultats{
     -webkit-animation: fadeIn 2.5s;

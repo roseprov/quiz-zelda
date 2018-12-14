@@ -13,7 +13,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    //TODO:Commentaires
     class Quiz {
         constructor() {
             //Attributs
@@ -129,7 +128,7 @@ define(["require", "exports"], function (require, exports) {
                         <p>${this.questionsReussi} sur 3 questions de réussi!</p>
                     </div>
                     <div class="btnRecommencer">
-                        <a href="quiz.html" class="bouton">Recommencer le quiz</a>
+                        <a href="index.html" class="bouton">Recommencer le quiz</a>
                     </div>
                 </div>
             </div>`;
@@ -240,6 +239,7 @@ define(["require", "exports"], function (require, exports) {
                 this.questionsReussi += 1;
                 this.pointage += parseInt(rupees);
             }
+            //Ajout des animations des choix de réponse
             arrChoix.forEach(element => {
                 console.log(element);
                 if (!(element.classList[1] == 'bonneReponse' || element.classList[1] == 'mauvaiseReponse')) {
