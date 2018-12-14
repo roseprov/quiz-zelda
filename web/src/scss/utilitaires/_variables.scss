@@ -13,19 +13,25 @@
 
 @font-face {
   font-family: 'cinzelDecorative';
-  src: url('../polices/CinzelDecorative-Bold.ttf') format('truetype');
+  src: url('../polices/CinzelDecorative-Bold.ttf') format('truetype'),
+  url('../polices/CinzelDecorative-Bold.woff') format('woff'),
+  url('../polices/CinzelDecorative-Bold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'crimsonTextBold';
-  src: url('../polices/CrimsonText-Bold.ttf') format('truetype');
+  src: url('../polices/CrimsonText-Bold.ttf') format('truetype'),
+  url('../polices/CrimsonText-Bold.woff') format('woff'),
+  url('../polices/CrimsonText-Bold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'crimsonText';
   src: url('../polices/CrimsonText-SemiBold.ttf') format('truetype');
+  src: url('../polices/CrimsonText-SemiBold.woff') format('woff');
+  src: url('../polices/CrimsonText-SemiBold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
