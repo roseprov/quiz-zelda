@@ -29,8 +29,8 @@
 }
 @font-face {
   font-family: 'crimsonText';
-  src: url('../polices/CrimsonText-SemiBold.ttf') format('truetype');
-  src: url('../polices/CrimsonText-SemiBold.woff') format('woff');
+  src: url('../polices/CrimsonText-SemiBold.ttf') format('truetype'),
+  src: url('../polices/CrimsonText-SemiBold.woff') format('woff'),
   src: url('../polices/CrimsonText-SemiBold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
