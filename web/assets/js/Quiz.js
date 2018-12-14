@@ -245,15 +245,11 @@ define(["require", "exports"], function (require, exports) {
             arrChoix.forEach(element => {
                 console.log(element);
                 if (!(element.classList[1] == 'bonneReponse' || element.classList[1] == 'mauvaiseReponse')) {
-                    element.querySelector('.hover')
+                    element
+                        .querySelector('.hover')
                         .classList.add('slideOutUp');
                 }
-                else {
-                    element.querySelector('.hover')
-                        .classList.add('slideInUp');
-                }
             });
-            console.log(explications);
             //Insérer les informations dans les balises appropriées
             explications
                 .querySelector('.retroaction')
