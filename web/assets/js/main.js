@@ -1,1 +1,6 @@
-define(["require","exports","./Quiz"],function(e,i,u){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),new u.Quiz});
+define(["require", "exports", "./Quiz"], function (require, exports, Quiz_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    new Quiz_1.Quiz();
+});
+//# sourceMappingURL=main.js.map
