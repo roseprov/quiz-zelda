@@ -86,8 +86,11 @@
       @include fontSize(16px);
 
       p {
-        padding-right: 4rem;
-        padding-left: 1rem;
+        padding: 0 1rem;
+         @media(min-width: $tablettePortrait){
+           padding-right: 4rem;
+         }
+        
         &:first-child {
           margin-bottom: 2rem;
         }

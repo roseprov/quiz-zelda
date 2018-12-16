@@ -20,6 +20,8 @@
 .bg_quiz{
   background:url('../images/bg_quiz.jpg') no-repeat center center fixed;
   background-size:cover;
+  background-origin:border-box;
+  box-sizing: border-box;
 }
 
 /* Haut de la page */
@@ -28,6 +30,7 @@
   font-family: $fonte;
   text-align: center;
   margin: 1rem 0 10rem 0;
+
 
   @media(min-width:$tablettePaysage){
     text-align:left;

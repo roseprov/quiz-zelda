@@ -10,7 +10,7 @@ CTRL-C      // pour arrêter le serveur
 Hit CTRL-C to stop the server
 ```
 
-## pour tester avec Android Studio
+## Pour tester avec Android Studio
 ```
 menu tools / android / avd manager
 nom appareil émulé
@@ -18,7 +18,7 @@ nom appareil émulé
 ```
 
 
-## pour tester avec un appareil réel
+## Pour tester avec un appareil réel
 Brancher l’appareil sur le poste de table
 dans devtools, dans more tools, aller chercher les remote devices
 ajouter le numéro de port de http-server (port forwarding)
@@ -26,4 +26,4 @@ Cliquer sur l’id de l’appareil puis sur le bouton inspecter
 
 
 ## URL déploiement
-- quiz-NOM-UNIQUE.herokuapp.com
+[quiz-zelda.herokuapp.com](quiz-zelda.herokuapp.com)
