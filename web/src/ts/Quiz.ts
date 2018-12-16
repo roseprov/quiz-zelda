@@ -138,7 +138,7 @@ export class Quiz {
             .closest('body')
             .className = 'bg_resultats';
 
-        document.querySelector('.creditPhoto').innerHTML = `<a href="www.jeffbrowngraphics.com">Art de Jeff Brown (www.jeffbrowngraphics.com)</a>`;
+        document.querySelector('.creditPhoto').innerHTML = `<a href="http://jeffbrowngraphics.com">Art de Jeff Brown (www.jeffbrowngraphics.com)</a>`;
 
     }
 
